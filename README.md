@@ -2,15 +2,15 @@
 
 ## Overview
 
-ShelfSage is a personalized book recommendation web app that allows users to discover new books based on their reading preferences, or what they have on their 'shelf'. The user will be able to create a profile, add books to their 'shelf', and receive book recommendations similar to Netflix. I will be using AI to recommend books based on the user's interactions and saved books.
+ShelfSage is a personalized book recommendation web app that allows users to discover books based on their reading preferences or what they have on their 'shelf'. The user will be able to create a profile, add books to their 'shelf', and receive book recommendations similar to Netflix. I will be using AI to recommend books based on the user's interactions and saved books.
 
 ### Problem Space
 
-There is an overwhelming amount of books in the world and finding one that matches an individual's tastes can be difficult. Readers, such as myself, rely on reviews online or browsing bookstores, and often invest money and time in books that aren't statisfying. My web app simplifies this by offering personalized recommendations, eliminating the need for excess research on their next read.
+There is an overwhelming amount of books in the world and finding one that matches an individual's tastes can be difficult. Readers rely on reviews online or browsing bookstores; or often invest money and time in books that are not satisfying. My web app simplifies this by offering personalized recommendations, eliminating the need for excess research on their next read.
 
 ### User Profile
 
-ShelfSage is designed for avid readers who want to keep track of their growing piles of books. This web app is meant for readers that want to keep track of their books and discover new ones. Users will be able to:
+ShelfSage is designed for avid readers who want to keep track of their growing piles of books. Users will be able to:
  - Search for books, authors, genres
  - Add books to their personal shelf
  - Remove books from their personal shelf
@@ -19,7 +19,7 @@ ShelfSage is designed for avid readers who want to keep track of their growing p
  - Manage their profile and account settings
 
 ### Features
-Book detail modal: Clicking on a book opens a modal that includes a synopsis, genre, and option to remove/add the book from the user's shelf. This is implemented throughout the web app.
+Book detail modal: Clicking on a book opens a modal that includes a synopsis, genre, and option to add/remove the book from the user's shelf. This is implemented throughout the web app.
 1. Homepage:
  - Search functionality: A search bar at the top of the page will allow the user to find books based on title, author, or genre from the Goodreads API.
  - Popular book section: List of popular books displayed with a horizontal scroll.
@@ -73,16 +73,16 @@ Homepage (logged out):
 
 Homepage (logged in):
  - Includes a search engine and popular books displayed in a horizontal scroll. 
- - Clicking on a book will open a modal with more details and the ability to add the book to their shelf.
+ - Clicking on a book will open a modal with more details and the ability to add the book to user's shelf.
 
 User's Shelf Page:
  - Displays the user's saved books. 
- - Clicking on a book will open a modal with more details and the ability to remove the book from their shelf.
+ - Clicking on a book will open a modal with more details and the ability to remove the book from user's shelf.
 
 Recommendation Page:
  - Shows recommended books based on the user's preferences.
- - Books are separated into lists, with horitzontal scroll, based off of genre, author, and keywords (Metadata).
- - Clicking on a book will open a modal with more details and the ability to add the book to their shelf.
+ - Books are separated into lists, with horizontal scroll, based off of genre, author, and keywords (Metadata).
+ - Clicking on a book will open a modal with more details and the ability to add the book to user's shelf.
 
 Profile Page:
  - Allows the user to upload and update their profile image
@@ -121,15 +121,15 @@ Books:
  - Book details fetched from the GoodReads API
 
 User Shelf: 
- - Book data stored in the database will reference the uniqure book ID from the API. 
- - User actions (adding books to their shelf) will be tracked to enhance recommendations.
+ - Book data stored in the database will reference the unique book ID from the API. 
+ - User actions, adding books to their shelf, will be tracked to enhance recommendations.
 
 Recommendations: 
- - Google Recommendation AI analyzes the book Metadata and user interactions (adding books to their shelf) to provide personalized recommendations.
+ - Google Recommendation AI analyzes the book Metadata and user interactions to provide personalized recommendations.
 
 Relationships:
  - Users -> Books: Users can add multiple books to their shelf (one to many relationship between users and books).
- - Books -> Recommendations: Based on metadata from books the user has interacted with (one to many relationship).
+ - Books -> Recommendations: Based on Metadata from books the user has interacted with (one to many relationship).
 
 ### Endpoints
 
@@ -204,4 +204,4 @@ Relationships:
 ## Future Implementations
 The primary goal for this web app is to ensure that the core functionality is operational and that the application is polished enough for deployment. However, if time constraints arise, prioritizing a working local version of the website is preferable to a broken deployed version. As such, deployment may be considered a post-project task.
 
-Additionally, the initial recommendation engine will focus on using metadata and user interactions to suggest books. In the future, I plan to integrate a user similarity-based recommendation system. This enhancement will require a larger user base and additional time to develop and refine the recommendation algorithms.
+Additionally, the initial recommendation engine will focus on using Metadata and user interactions to suggest books. In the future, I plan to integrate a user similarity-based recommendation system. This enhancement will require a larger user base and additional time to develop and refine the recommendation algorithms.
