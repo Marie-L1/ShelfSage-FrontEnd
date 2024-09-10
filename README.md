@@ -90,6 +90,8 @@ Profile Page:
  - Has a button to delete the account
 
 ### Mockups
+Subject to change.
+
 Mobile view Homepage - logged out
 ![Homepage logged out](mockup-imgs/mobile-loggedOut.png)
 
