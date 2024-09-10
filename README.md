@@ -142,7 +142,7 @@ Relationships:
 
 2. GET search.books:
  - Find books by title, author, or ISBN
- - Implementing the search bar on your home page
+ - Implementing the search bar on the home page
 
 #### Custom Endpoints:
 1. POST /auth/login:
