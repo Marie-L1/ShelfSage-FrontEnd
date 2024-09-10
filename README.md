@@ -91,26 +91,26 @@ Profile Page:
 
 ### Mockups
 Mobile view Homepage - logged out
-<img src="../ShelfSage/mockup-imgs/mobile-loggedOut.png" alt="Homepage logged out" width="500" height="auto">
+![Homepage logged out](mockup-imgs/mobile-loggedOut.png)
 
-Moble view General Homepage - logged in
-<img src="../ShelfSage/mockup-imgs/mobile-general.png" alt="general mobile view" width="500" height="auto">
+Mobile view General Homepage - logged in
+![General mobile view](mockup-imgs/mobile-general.png)
 
 Tablet/Desktop view Homepage - Logged in
-<img src="../ShelfSage/mockup-imgs/home.png" alt="Home - logged in" width="500" height="auto">
+![Home - logged in](mockup-imgs/home.png)
 
 Tablet/Desktop view Shelf Page - logged in
-<img src="../ShelfSage/mockup-imgs/shelf.png" alt="shelf page" width="500" height="auto">
+![Shelf page](mockup-imgs/shelf.png)
 
 Tablet/Desktop view Recommendation Page - logged in
-<img src="../ShelfSage/mockup-imgs/recs.png" alt="recommendation page" width="500" height="auto">
+![Recommendation page](mockup-imgs/recs.png)
 
 Tablet/Desktop view Profile Page - logged in
-<img src="../ShelfSage/mockup-imgs/profile.png" alt="user profile page" width="500" height="auto">
+![User profile page](mockup-imgs/profile.png)
 
 Main Logo and Colour Palette
-<img src="../ShelfSage/mockup-imgs/SHELFSAGE.png" alt="logo" width="200" height="auto">
-<img src="../ShelfSage/mockup-imgs/Fade to Dust.png" alt="colour palette" width="200" height="auto">
+![Logo](mockup-imgs/SHELFSAGE.png)
+![Colour palette](mockup-imgs/Fade%20to%20Dust.png)
 
 ### Data
 Metadata: Used to categorize and suggest similar books.
