@@ -32,6 +32,10 @@ function App() {
         </li>
       </ul>
     </header>
+    <section className="main-content">
+      
+
+    </section>
     
 
     </>
