@@ -1,1 +1,13 @@
+@forward './styles/colors';
+@forward './styles/fonts';
+@forward './styles/media-queries';
+@forward './styles/typography';
+@forward './styles/mixins';
 
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Titillium Web;
+}
