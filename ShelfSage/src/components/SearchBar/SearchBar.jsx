@@ -23,7 +23,7 @@ function SearchBar() {
       <input
         type="text"
         className="search__input"
-        placeholder="Search..."
+        placeholder="Search"
         value={searchValue}
         onChange={handleInputChange}
       />
