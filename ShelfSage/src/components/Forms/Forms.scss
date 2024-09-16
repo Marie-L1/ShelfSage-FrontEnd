@@ -1,47 +1,44 @@
 @import "../../App.scss";
 
 .form{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+    @include flex-column-align-center;
 
     &__title{
         padding-top: 1.25rem;
         margin-bottom: 1.25rem;
-        border-bottom: dotted 2px $brown;
+        @include border-bottom-dotted-brown;
+        @include page-header;
     }
     &__section{
-        display: flex;
-        flex-flow: column;
-        align-items: center;
+        @include flex-column-align-center;
     }
     &__username-wrapper,&__email-wrapper, &__password-wrapper {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
+        @include flex-column-align-center;
     }
     &__username-label, &__email-label, &__password-label {
-        border-bottom: dotted 2px $brown;
-        margin: 20px;
+        @include border-bottom-dotted-brown;
+        margin: 1.25rem;
+        @include sub-header;
     }
     &__username-input, &__email-input,  &__password-input {
-        height: 2rem;
-        border: solid 1px $dark-green;
-        padding: .25rem;
+        height: 2.5rem;
+        @include border-dark-green;
+        padding: 1rem;
         width: 50vw;
-        border-radius: 4px;
+        border-radius: .25rem;
 
         &:focus{
-            border: 2px solid $secondary-green;
+            @include border-second-green;
         }
     }
     &__submit-btn{
-        margin: 20px;
+        margin: 1.875rem;
         width: 50vw;
         background-color: $primary-green;
-        border: solid .0625rem $secondary-green;
+        @include border-second-green;
         border-radius: .25rem;
-        padding: 5px;
+        padding: .3125rem;
+        @include labels-links-buttons;
 
         &:hover{
             background-color: $secondary-green;
@@ -49,11 +46,26 @@
     }
     &__switch{
         margin: 1.875rem 1.875rem 16rem 1.875rem;
+        @include body-medium;
     }
     &__switch-btn{
         background-color: $brown;
         padding: .3125rem;
-        border: none;
+        width: 5.625rem;
+        @include border-second-green;
         border-radius: .25rem;
+        margin-left: 1rem;
+        @include labels-links-buttons;
+
+        &:hover{
+            background-color: $secondary-green;
+        }
+    }
+
+    @include tablet{
+
+    }
+    @include desktop{
+
     }
 }

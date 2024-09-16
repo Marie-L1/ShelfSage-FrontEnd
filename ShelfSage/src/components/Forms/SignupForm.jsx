@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Forms.scss";
+import { Link } from "react-router-dom";
 
 
 function SignupForm({ onSwitch }) {

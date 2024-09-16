@@ -58,7 +58,7 @@ function LoginForm({ onSubmitForm, onSwitch }) {
 
             <p className="form__switch">Don't have an account? 
               <button className="form__switch-btn" type="button" onClick={() => onSwitch("signup")}>
-              Signup
+              Sign Up
             </button>
             </p>
         </form>

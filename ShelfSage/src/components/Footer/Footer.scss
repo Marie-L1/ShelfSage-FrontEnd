@@ -1,13 +1,12 @@
 @import "../../App.scss";
 
 .footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include justifyContent-alignItems-center;
     padding: 50px;
     background-color: $primary-green;
+    @include border-top-dotted-brown;
     &__content{
-        color: $dark-green;
-
+        color: $secondary-green;
+        @include body-small;
     }
 }

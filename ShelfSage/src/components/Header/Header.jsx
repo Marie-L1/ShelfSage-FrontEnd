@@ -27,7 +27,7 @@ function Header() {
       ) : (
         <div className="header-logged-out">
             <Link to={`/login`} className="header-logged-out__login">Login</Link>
-            <Link to={`/signup`} className="header-logged-out__signup">Signup</Link>
+            <Link to={`/signup`} className="header-logged-out__signup">Sign Up</Link>
         </div>
       )}
     </header>
