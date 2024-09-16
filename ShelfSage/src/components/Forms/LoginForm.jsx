@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Forms.scss";
 
 function LoginForm({ onSubmitForm, onSwitch }) {
   const [username, setUsername] = useState("");
@@ -25,14 +26,14 @@ function LoginForm({ onSubmitForm, onSwitch }) {
 
 
   return (
-    <div className="login">
-        <h2 className="login__title">Login</h2>
-        <form className="login__form" onSubmit={handleSubmit}>
-            <div className="login__username-wrapper">
-                <label className="login__username-label">Username</label>
+    <div className="form">
+        <h2 className="form__title">Login</h2>
+        <form className="form__section" onSubmit={handleSubmit}>
+            <div className="form__username-wrapper">
+                <label className="form__username-label">Username</label>
                 <input
                   name="username"
-                  className="login__username"
+                  className="form__username-input"
                   placeholder="username"
                   value={username}
                   onChange={(event) => setUsername(event.target.value)}
@@ -40,12 +41,12 @@ function LoginForm({ onSubmitForm, onSwitch }) {
                 />
             </div>
 
-            <div className="login__password-wrapper">
-                <label className="login__password-label">Password</label>
+            <div className="form__password-wrapper">
+                <label className="form__password-label">Password</label>
                 <input
                   name="password"
                   type="password"
-                  className="login__password"
+                  className="form__password-input"
                   placeholder="password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
@@ -53,10 +54,10 @@ function LoginForm({ onSubmitForm, onSwitch }) {
                 />
             </div>
 
-            <button className="login__submit-btn" type="submit">Login</button>
+            <button className="form__submit-btn" type="submit">Login</button>
 
-            <p className="login__signup-btn">Don't have an account? 
-              <button className="" type="button" onClick={() => onSwitch("signup")}>
+            <p className="form__switch">Don't have an account? 
+              <button className="form__switch-btn" type="button" onClick={() => onSwitch("signup")}>
               Signup
             </button>
             </p>

@@ -4,17 +4,20 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useAuth } from "./script/AuthContent"
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import Modal from "./components/Modal/Modal.jsx";
 import LoggedInHome from "./pages/LoggedInHome/LoggedInHome.jsx";
 import LoggedOutHome from "./pages/LoggedOutHome/LoggedOutHome.jsx";
 import Shelf from "./pages/Shelf/Shelf.jsx";
 import Recommendations from "./pages/Recommendations/Recommendations.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
+import LoginForm from "./components/Forms/LoginForm.jsx";
+import SignupForm from "./components/Forms/SignupForm.jsx";
 
 function App() {
   const AuthContent = useAuth();
   console.log(AuthContent); // debugging
-  const { user, loading } = useAuth();
+  
+  const { user } = useAuth();
+  console.log(user)
   
   return (
     <>
@@ -22,13 +25,19 @@ function App() {
     <Header />
       <Routes>
         {user ? (
-          <Route path="/" exact component={LoggedInHome} />
+          <>
+          <Route path="/" element={<LoggedInHome />} />
+          <Route path="/shelf" element={<Shelf />} />
+          <Route path="/recommendations" element={<Recommendations />} />
+          <Route path="/profile" element={<Profile />} />
+          </>
         ) : (
-          <Route path="/" exact component={LoggedOutHome} />
+          <>
+          <Route path="/" element={<LoggedOutHome />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
+          </>
         )}
-        <Route path="/shelf" element={<Shelf />} />
-        <Route path="/recommendations" element={<Recommendations />} />
-        <Route path="/profile" element={<Profile />} />
       </Routes>
 
     <Footer />

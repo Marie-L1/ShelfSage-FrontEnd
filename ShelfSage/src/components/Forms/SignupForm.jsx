@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Forms.scss";
 
 
 function SignupForm({ onSwitch }) {
@@ -28,14 +29,14 @@ function SignupForm({ onSwitch }) {
     } 
 
   return (
-    <section className="signup">
-    <h2 className="signup__title">Signup</h2>
-    <form className="signup__forms" onSubmit={handleSubmit}>
-        <div className="signup__username-wrapper">
-            <label className="signup__username-label">Username</label>
+    <section className="form">
+    <h2 className="form__title">Signup</h2>
+    <form className="form__section" onSubmit={handleSubmit}>
+        <div className="form__username-wrapper">
+            <label className="form__username-label">Username</label>
             <input
             name="username"
-            className="signup__username-input"
+            className="form__username-input"
             placeholder="username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
@@ -43,25 +44,24 @@ function SignupForm({ onSwitch }) {
           />
         </div>
 
-        <div className="signup__email-wrapper">
-            <label className="signup__email-label">Email</label>
+        <div className="form__email-wrapper">
+            <label className="form__email-label">Email</label>
             <input
             name="email"
-            className="signup__email-input"
+            className="form__email-input"
             placeholder="email"
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             required
           />
-
         </div>
 
-        <div className="signup__password-wrapper">
-            <label className="signup__password-label">Password</label>
+        <div className="form__password-wrapper">
+            <label className="form__password-label">Password</label>
             <input
             name="password"
-            className="signup__password-input"
+            className="form__password-input"
             placeholder="password"
             type="password"
             value={password}
@@ -70,10 +70,10 @@ function SignupForm({ onSwitch }) {
           />
         </div>
 
-        <button className="signup__submit-btn" type="submit">Sign Up</button>
+        <button className="form__submit-btn" type="submit">Sign Up</button>
 
-        <p className="signup__switch">
-            Already have an account? <button type="button" onClick={() => onSwitch("login")}>Login</button>
+        <p className="form__switch">
+            Already have an account? <button className="form__switch-btn" type="button" onClick={() => onSwitch("login")}>Login</button>
         </p>
     </form>
 </section>

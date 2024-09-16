@@ -1,18 +1,26 @@
 import React from 'react'
 import "./LoggedOutHome.scss"
-import SignupForm from '../../components/SignupForm/SignupForm';
-import LoginForm from '../../components/LoginForm/LoginForm';
+import SignupForm from '../../components/Forms/SignupForm';
+import LoginForm from "../../components/Forms/LoginForm";
 
 function LoggedOutHome() {
+  // set the initial state to the login page
+  const [formType, setFormType] = useState("login");
+
+  // able to toggle between the login and sign up forms
+  const handleFormSwitch = (type) => {
+    setFormType(type);
+  };
+
   return (
     <section>
         <h2>Please Log in or Signup</h2>
-        <div className="login">
-        </div>
-        <div className="Signup">
-      
-
-        </div>
+        
+        {formType === "login" ? (
+          <LoginForm onSwitch={handleFormSwitch} />
+        ) : (
+          <SignupForm onSwitch={handleFormSwitch} />
+        )}
     </section>
   )
 }
