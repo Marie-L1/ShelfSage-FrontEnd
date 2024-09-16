@@ -5,7 +5,8 @@ import { useAuth } from "./script/AuthContent"
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import Modal from "./components/Modal/Modal.jsx";
-import Home from "./pages/Home/Home.jsx";
+import LoggedInHome from "./pages/Home/LoggedInHome.jsx";
+import LoggedOutHome from "./pages/Home/LoggedOutHome.jsx";
 import Shelf from "./pages/Shelf/Shelf.jsx";
 import Recommendations from "./pages/Recommendations/Recommendations.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
@@ -18,6 +19,14 @@ function App() {
     <BroswerRouter>
     <Header />
     <Router>
+      <Switch>
+        {user ? (
+          <Route path="/" exact component={LoggedInHome} />
+        ) : (
+          <Route path="/" exact component={LoggedOutHome} />
+        )
+      }
+      </Switch>
 
     </Router>
     <Footer />
