@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext, useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+
 
 // create a context for authentication
 const AuthContext = createContext();
@@ -54,11 +54,11 @@ export function AuthProvider({ children }){
         logout
     };
 
-    return function useAuth(){
+    return (
         <AuthContext.Provider value={value}>
             {loading ? <h2>Loading...</h2> :  children}
         </AuthContext.Provider>
-    };
+    );
 }
 
 export function useAuth(){

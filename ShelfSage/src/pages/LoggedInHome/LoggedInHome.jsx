@@ -1,7 +1,5 @@
 import React from "react";
-import "./Home.scss";
-import icon from '../../assets/icons/search-24px.svg';
-import icon from "../../assets/icons/search-24px.svg";
+import "./LoggedInHome.scss";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
