@@ -8,7 +8,7 @@ function LoggedOutHome() {
         <div className="login">
         </div>
         <div className="Signup">
-
+      
 
         </div>
     </section>
