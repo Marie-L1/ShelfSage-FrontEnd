@@ -1,5 +1,7 @@
 import React from 'react'
 import "./LoggedOutHome.scss"
+import SignupForm from '../../components/SignupForm/SignupForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 
 function LoggedOutHome() {
   return (
