@@ -9,12 +9,12 @@ class APIhandler {
     async loginUser(username, password){
         try {
             const response = await axios.post(`${this.baseURL}/login`, { username, password });
-            return response.data; // Expecting the token and user data
+            return response.data; // expecting the token and user data
         } catch (error) {
             console.error("Error logging in user", error);
             throw error; // handle it in the calling function
         }
-    }
+    };
 
     // User signup
     async signUpUser(username, password, email){
@@ -25,7 +25,19 @@ class APIhandler {
             console.error("Error signing up user", error);
             throw error; // handle it in the calling function
         }
-    }
+    };
+
+    async isLoggedIn(token){
+        try{
+            const response = await axios.post(`${this.baseURL}/loggedIn`, {
+                headers: { Authorization: `Bearer ${token}`}
+            });
+            return response.data; // expecting user data if logged in
+        }catch(error){
+            console.error("Error signing up user", error);
+            throw error; // handle it in the calling function
+        }
+    };
 
     // Fetch user profile - requires token
     async getUserProfile(token){
