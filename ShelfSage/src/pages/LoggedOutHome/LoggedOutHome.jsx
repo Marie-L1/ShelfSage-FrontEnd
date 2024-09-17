@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./LoggedOutHome.scss"
 import SignupForm from '../../components/Forms/SignupForm';
 import LoginForm from "../../components/Forms/LoginForm";
@@ -14,12 +14,11 @@ function LoggedOutHome() {
 
   return (
     <section>
-        <h2>Please Log in or Signup</h2>
         
         {formType === "login" ? (
-          <LoginForm onSwitch={handleFormSwitch} />
+          <LoginForm onSubmitForm={handleFormSwitch} />
         ) : (
-          <SignupForm onSwitch={handleFormSwitch} />
+          <SignupForm onSubmitForm={handleFormSwitch} />
         )}
     </section>
   )

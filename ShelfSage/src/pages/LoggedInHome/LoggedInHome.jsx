@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./LoggedInHome.scss";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -8,7 +8,7 @@ function Home() {
     <section className="">
       <div className="hero">
         <h2></h2>
-        <SearchBar classname="hero__search" onSearch={onSearch} />
+        <SearchBar classname="hero__search" />
       </div>
       <div className="popular-books">
         <h2>Popular Books</h2>

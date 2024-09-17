@@ -4,8 +4,8 @@
     @include flex-column-align-center;
 
     &__title{
-        padding-top: 1.25rem;
-        margin-bottom: 1.25rem;
+        padding-top: 3rem;
+        margin-bottom: 2rem;
         @include border-bottom-dotted-brown;
         @include page-header;
     }
@@ -14,10 +14,11 @@
     }
     &__username-wrapper,&__email-wrapper, &__password-wrapper {
         @include flex-column-align-center;
+        margin: 2rem;
     }
     &__username-label, &__email-label, &__password-label {
         @include border-bottom-dotted-brown;
-        margin: 1.25rem;
+        margin: 1rem;
         @include sub-header;
     }
     &__username-input, &__email-input,  &__password-input {
@@ -63,9 +64,60 @@
     }
 
     @include tablet{
+        &__title{
+            @include dt-page-header;
+        }
+        &__username-label, &__email-label, &__password-label {
+            @include dt-sub-header;
+        }
+        &__username-input, &__email-input,  &__password-input {
+            height: 2.75rem;
+            width: 52vw;
+            padding: 1.5rem;
 
+            &::placeholder{
+                @include dt-body-medium;
+            }
+        }
+        &__submit-btn{
+            width: 52vw;
+            padding: .5rem;
+            @include dt-labels-links-buttons;
+        }
+        &__switch{
+            @include dt-body-medium;
+        }
+        &__switch-btn{
+            @include dt-labels-links-buttons;
+            padding: 0.5rem;
+            width: 6rem;
+        }
     }
     @include desktop{
+        &__title{
+            @include dt-page-header;
+        }
+        &__username-label, &__email-label, &__password-label {
+            @include dt-sub-header;
+        }
+        &__username-input, &__email-input,  &__password-input {
+            height: 3em;
+            width: 45vw;
+            padding: 1.5rem;
+        }
+        &__submit-btn{
+            width: 45vw;
+            padding: .5rem;
+            @include dt-labels-links-buttons;
+        }
+        &__switch{
+            @include dt-body-medium;
+        }
+        &__switch-btn{
+            @include dt-labels-links-buttons;
+            padding: 0.5rem;
+            width: 6rem;
+        }
 
     }
 }

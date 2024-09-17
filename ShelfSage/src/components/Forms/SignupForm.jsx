@@ -2,23 +2,25 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Forms.scss";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../script/AuthContent";
 
 
-function SignupForm({ onSwitch }) {
+function SignupForm() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const { setUser } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault(); // prevent the form from submitting and reloading the signup page
 
-        const newUser = { username, email, password };
+        const userInfo = { username, email, password };
         console.log("form submitted")
 
         // update user state to log them in
-        setUser(newUser);
+        setUser(userInfo);
 
         // clear input fields 
         setUsername("");
@@ -74,7 +76,7 @@ function SignupForm({ onSwitch }) {
         <button className="form__submit-btn" type="submit">Sign Up</button>
 
         <p className="form__switch">
-            Already have an account? <button className="form__switch-btn" type="button" onClick={() => onSwitch("login")}>Login</button>
+            Already have an account? <Link to="/login" className="form__switch-btn" type="button">Login</Link>
         </p>
     </form>
 </section>

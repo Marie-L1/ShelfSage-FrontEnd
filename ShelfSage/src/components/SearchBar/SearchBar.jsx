@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+import icon from "../../assets/icons/search-24px.svg"
 
 function SearchBar() {
   const [query, setQuery] = useState("");

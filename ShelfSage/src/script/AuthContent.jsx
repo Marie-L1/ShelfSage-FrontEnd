@@ -1,5 +1,6 @@
 import React from 'react';
 import { createContext, useState, useEffect, useContext } from 'react';
+import axios from "axios";
 
 
 // create a context for authentication
@@ -13,13 +14,13 @@ export function AuthProvider({ children }){
     // check if there's a token and fetch the user info
     useEffect(() => {
         const fetchUser = async () => {
-            if (token){
-                try{
-                    const { data } = await axios.get("/user/me", {
-                        headers: { Authorization: `Bearer ${token}`}
+            if (token) {
+                try {
+                    const { data } = await axios.get("http://localhost:8080/user/me", {
+                        headers: { Authorization: `Bearer ${token}` }
                     });
                     setUser(data);
-                }catch(error){
+                } catch (error) {
                     console.error("Couldn't fetch user", error);
                     setUser(null);
                 }
@@ -31,13 +32,22 @@ export function AuthProvider({ children }){
 
     const login = async (username, password) => {
         try{
-            const { data } = await axios.post("/login", { username, password });
+            const { data } = await axios.post("http://localhost:8080/login", { username, password });
             localStorage.setItem("token", data.token);
             setToken(data.token);
         }catch(error){
             console.error("Login failed", error);
             setToken(null);
             setUser(null);
+        }
+    };
+
+    const signup = async (username, password, email) => {
+        try {
+            await axios.post("http://localhost:8080/signup", { username, password, email });
+            // handle successful signup (e.g., redirect or show a message)
+        } catch (error) {
+            console.error("Signup failed", error);
         }
     };
 
@@ -50,7 +60,9 @@ export function AuthProvider({ children }){
     const value = {
         user,
         loading,
+        setUser,
         login,
+        signup,
         logout
     };
 

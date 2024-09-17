@@ -1,27 +1,25 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Forms.scss";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../script/AuthContent";
 
-function LoginForm({ onSubmitForm, onSwitch }) {
+function LoginForm({ onSubmitForm }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const { login } = useAuth(); 
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit =  async (event) => {
     event.preventDefault();
-
-    const userInfo = { username, password };
-    console.log("login submitted");
-
-    onSubmitForm(userInfo);
-
-    // clear the input fields 
-    setUsername("");
-    setPassword("");
-
-    // redirect to logged-in homepage
-    navigate("/");
+    try {
+      await login(username, password);
+      setUsername("");
+      setPassword("");
+      navigate("/");
+    } catch (error) {
+      console.error("Login failed", error);
+    }
   }
 
 
@@ -57,9 +55,9 @@ function LoginForm({ onSubmitForm, onSwitch }) {
             <button className="form__submit-btn" type="submit">Login</button>
 
             <p className="form__switch">Don't have an account? 
-              <button className="form__switch-btn" type="button" onClick={() => onSwitch("signup")}>
+              <Link to="/signup" className="form__switch-btn" type="button">
               Sign Up
-            </button>
+            </Link>
             </p>
         </form>
     </div>
