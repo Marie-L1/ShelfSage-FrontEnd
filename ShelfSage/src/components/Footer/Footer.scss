@@ -1,0 +1,12 @@
+@import "../../App.scss";
+
+.footer{
+    @include justifyContent-alignItems-center;
+    padding: 50px;
+    background-color: $primary-green;
+    @include border-top-dotted-brown;
+    &__content{
+        color: $secondary-green;
+        @include body-small;
+    }
+}

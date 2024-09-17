@@ -1,0 +1,90 @@
+@import "../../App.scss";
+
+.header{
+    @include justifyContent-alignItems-center;
+    flex-flow: column;
+    background: $primary-green;
+    color: $dark-green;
+    padding-bottom: 1.25rem;
+    @include border-bottom-dotted-brown;
+    &__logo{
+        width: 16rem;
+        height: 16rem;
+        margin-top: -2.5rem;
+    }
+
+    @include tablet{
+        flex-flow: row;
+        padding-bottom: 0;
+        justify-content: flex-start;
+        align-content: center;
+        gap: 1.875rem;
+        padding-left: 3.125rem;
+        &__logo{
+            width: 17rem;
+            height: 17rem;
+            margin: -2.5rem;
+        }
+    }
+    @include desktop{
+        flex-flow: row;
+        padding-bottom: 0;
+        justify-content: flex-start;
+        align-content: center;
+        padding-left: 5.625rem;
+
+        &__logo{
+            width: 18rem;
+            height: 18rem;
+            margin: -2.5rem;
+        }
+
+    }
+}
+
+.header-logged-in{
+    @include justify-evenly;
+    margin-top: -1.875rem;
+    @include body-large;
+
+    @include tablet{
+        @include dt-body-large;
+    }
+    @include desktop{
+        
+    }
+}
+
+.header-logged-out{
+    display: flex;
+    justify-content: space-around;
+    gap: 7.5rem;
+    margin-top: -1.875rem;
+
+    &__login, &__signup{
+        color: $dark-green;
+        text-decoration: none;
+        &:hover{
+            color: $primary-light;
+            @include border-bottom-dotted-brown;
+        }
+    }
+    @include tablet{
+        gap: 3.125rem;
+        margin-top: 1rem;
+    
+        &__login, &__signup{
+            @include dt-body-large;
+        }
+
+    }
+    @include desktop{
+        gap: 5rem;
+        margin-top: 1rem;
+
+        &__login, &__signup{
+            @include dt-body-large;
+        }
+    }
+
+}
