@@ -4,7 +4,7 @@ import "./Forms.scss";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../script/AuthContent";
 
-function LoginForm({ onSubmitForm }) {
+function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useAuth(); 
