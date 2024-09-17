@@ -63,7 +63,7 @@ function LoginForm() {
                 />
             </div>
 
-            <Link to={`/loggedIn`} className="form__submit-btn" type="submit">Login</Link>
+            <button type="submit" className="form__submit-btn">Login</button>
 
         </form>
             <p className="form__switch">Don't have an account? 

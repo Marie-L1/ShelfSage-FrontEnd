@@ -13,8 +13,8 @@ function Header() {
       {user ? (
         <div className="header-logged-in">
           <div className="header-logged-in__wrapper">
-            <span className="">Welcome, {user.username}</span>
-            <button className="" onClick={logout}>
+            <span className="header-logged-in__welcome">Welcome, {user.username}</span>
+            <button className="header-logged-in__logout" onClick={logout}>
               Logout
             </button>
           </div>

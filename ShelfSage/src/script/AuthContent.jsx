@@ -12,6 +12,8 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
         const fetchUser = async () => {
+            setLoading(true); // Set loading to true when starting to fetch
+    
             if (token) {
                 try {
                     const response = await axios.get(`${baseURL}/user/me`, {
@@ -21,13 +23,18 @@ export function AuthProvider({ children }) {
                 } catch (error) {
                     console.error("Error fetching user data", error.response ? error.response.data : error.message);
                     setUser(null);
-                };
+                    console.log("token being sent:", token)
+                }
             } else {
-                setLoading(false);
+                setUser(null); // Set user to null if no token is available
             }
+    
+            setLoading(false); // Set loading to false after fetch is done
         };
+    
         fetchUser();
     }, [token]);
+    
 
     const login = async (username, password) => {
         try {

@@ -42,19 +42,76 @@
     }
 }
 
+
+// logged in
 .header-logged-in{
     @include justify-evenly;
     margin-top: -1.875rem;
     @include body-large;
+    display: flex;
+    flex-flow: column;
+
+    &__wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1.25rem;
+        gap: .625rem;
+    }
+    &__welcome{
+        @include body-large;
+    }
+    &__logout{
+        background-color: $brown;
+        padding: 0.1rem;
+        width: 3rem;
+        border: none;
+        border-radius: .25rem;
+        @include labels-links-buttons;
+    }
+    &__nav{
+        display: flex;
+        justify-content: space-around;
+        gap: 3.75rem;
+    }
+    &__nav-home, &__nav-shelf, &__nav-recs, &__nav-profile{
+        color: $dark-green;
+        text-decoration: none;
+        &:hover{
+            color: $primary-light;
+            @include border-bottom-dotted-brown;
+        }
+    }
 
     @include tablet{
         @include dt-body-large;
+        margin-top: 1.875rem;
+
+        &__welcome{
+            @include dt-body-large;
+        }
+        &__logout{
+            padding: 0.3rem;
+            width: 4rem;
+            @include dt-labels-links-buttons;
+        }
     }
     @include desktop{
-        
+        @include dt-body-large;
+        margin-top: 1.875rem;
+
+        &__welcome{
+            @include dt-body-large;
+        }
+        &__logout{
+            padding: 0.4rem;
+            width: 4.5rem;
+            @include dt-labels-links-buttons;
+        }
     }
 }
 
+// logged out
 .header-logged-out{
     display: flex;
     justify-content: space-around;
