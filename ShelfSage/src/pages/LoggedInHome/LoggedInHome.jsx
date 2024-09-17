@@ -5,7 +5,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 function Home() {
   return (
-    <section className="">
+    <section className="home">
       <div className="hero">
         <h2></h2>
         <SearchBar classname="hero__search" />

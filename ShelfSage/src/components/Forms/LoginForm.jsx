@@ -16,7 +16,7 @@ function LoginForm({ onSubmitForm }) {
       await login(username, password);
       setUsername("");
       setPassword("");
-      navigate("/");
+      navigate("/loggedIn");
     } catch (error) {
       console.error("Login failed", error);
     }

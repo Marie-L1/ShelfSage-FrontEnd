@@ -10,26 +10,24 @@ function SignupForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const { setUser } = useAuth();
+    const { signup } = useAuth(); 
+
     const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault(); // prevent the form from submitting and reloading the signup page
 
-        const userInfo = { username, email, password };
-        console.log("form submitted")
+        try {
+            await signup(username, password, email); // call signup function from AuthContext
+            setUsername("");
+            setEmail("");
+            setPassword("");
+            navigate("/loggedIn"); // redirect to the homepage
+        } catch (error) {
+            console.error("Signup error:", err);
+        }
+    };
 
-        // update user state to log them in
-        setUser(userInfo);
-
-        // clear input fields 
-        setUsername("");
-        setEmail("");
-        setPassword("");
-
-        // redirect to logged-in homepage
-        navigate("/")
-    } 
 
   return (
     <section className="form">
