@@ -10,17 +10,28 @@ function LoginForm() {
   const { login } = useAuth(); 
   const navigate = useNavigate();
 
-  const handleSubmit =  async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    
     try {
-      await login(username, password);
-      setUsername("");
-      setPassword("");
-      navigate("/loggedIn");
+      // attempt login (ensure the 'login' function handles the API call and token)
+      const isSuccess = await login(username, password);
+  
+      if (isSuccess) {
+        // clear form fields
+        setUsername("");
+        setPassword("");
+  
+        // navigate to the loggedIn page
+        navigate("/loggedIn");
+      } else {
+        console.error("Login failed: Incorrect username or password");
+      }
     } catch (error) {
       console.error("Login failed", error);
     }
-  }
+  };
+  
 
 
   return (
@@ -52,14 +63,14 @@ function LoginForm() {
                 />
             </div>
 
-            <button className="form__submit-btn" type="submit">Login</button>
+            <Link to={`/loggedIn`} className="form__submit-btn" type="submit">Login</Link>
 
+        </form>
             <p className="form__switch">Don't have an account? 
               <Link to="/signup" className="form__switch-btn" type="button">
               Sign Up
             </Link>
             </p>
-        </form>
     </div>
   )
 }

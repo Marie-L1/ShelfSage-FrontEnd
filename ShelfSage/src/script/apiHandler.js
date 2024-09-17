@@ -12,7 +12,6 @@ class APIhandler {
             return response.data; // expecting the token and user data
         } catch (error) {
             console.error("Error logging in user", error);
-            throw error; // handle it in the calling function
         }
     };
 
@@ -20,10 +19,9 @@ class APIhandler {
     async signUpUser(username, password, email){
         try {
             const response = await axios.post(`${this.baseURL}/signup`, { username, password, email });
-            return response.data; // Expecting a success message or user data
+            return response.data;
         } catch (error) {
             console.error("Error signing up user", error);
-            throw error; // handle it in the calling function
         }
     };
 
@@ -35,7 +33,6 @@ class APIhandler {
             return response.data; // expecting user data if logged in
         }catch(error){
             console.error("Error signing up user", error);
-            throw error; // handle it in the calling function
         }
     };
 
@@ -48,7 +45,6 @@ class APIhandler {
             return response.data; // Expecting user data
         } catch (error) {
             console.error("Error fetching user profile", error);
-            throw error; // handle it in the calling function
         }
     }
 
@@ -61,7 +57,6 @@ class APIhandler {
             return response.data; // Expecting shelf data
         } catch (error) {
             console.error("Error fetching user's shelf", error);
-            throw error; // handle it in the calling function
         }
     }
 
@@ -74,7 +69,6 @@ class APIhandler {
             return response.data; // Expecting success message or updated data
         } catch (error) {
             console.error("Error adding book to shelf", error);
-            throw error; // handle it in the calling function
         }
     }
 
@@ -87,7 +81,6 @@ class APIhandler {
             return response.data; // Expecting recommended books
         } catch (error) {
             console.error("Error fetching book recommendations", error);
-            throw error; // handle it in the calling function
         }
     }
 
@@ -98,7 +91,7 @@ class APIhandler {
             return true;
         } catch (error) {
             console.error("Error logging out user", error);
-            return false; // Indicate logout failure
+            return false; // logout failure
         }
     }
 }
