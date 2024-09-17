@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import icon from "../../assets/icons/search-24px.svg"
+import "./SearchBar.scss";
 
 function SearchBar() {
   const [query, setQuery] = useState("");
@@ -22,10 +23,11 @@ function SearchBar() {
                 type="text" 
                 value={query} 
                 onChange={(e) => setQuery(e.target.value)} 
-                placeholder="Search for books" 
+                placeholder="Search" 
+                className="search__input"
             />
       <button type="submit" className="search__btn" onClick={handleSearch}>
-        <img src={icon} alt="search__icon" />
+        <img src={icon} alt="search__icon" className="search__icon" />
       </button>
     </form>
   );

@@ -23,11 +23,11 @@ function BookList({ query }) {
     }, [query]);
 
   return (
-    <div className="bookList">
+    <div className="book-list">
       {books.map(book => (
-        <div key={book.id} className="">
-          <img src={book.coverImage} alt={book.title} />
-          <h3 className="">{book.title}</h3>
+        <div key={book.id} className="book-list__wrapper">
+          <img className="book-list__cover" src={book.coverImage} alt={book.title} />
+          <h3 className="book-list__title">{book.title}</h3>
         </div>
       ))}
     </div>

@@ -2,11 +2,11 @@
 
 
 .home{
-
+    background-color: $primary-light;
 }
 
 .hero{
-    margin-bottom: 200px;
+    margin-bottom: 12.5rem;
 
     &__img{
         width: 100%;
@@ -14,18 +14,19 @@
         z-index: 1;
     }
     &__content-wrapper{
-        margin-top: -250px;
+        margin-top: -15.625rem;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-flow: column;
+        gap: 1.25rem;
     }
     &__title{
         @include page-header;
         z-index: 2;
         background-color: $secondary-green;
-        padding: 15px;
-        border-radius: 5px;
+        padding: .9375rem;
+        border-radius: .3125rem;
         border: solid $dark-green 2px;
     }
     &__search{
@@ -33,9 +34,30 @@
     }
 
     @include tablet{
-
+        margin-bottom: 15.625rem;
+        &__img{
+            max-height: 50vh;
+        }
+        &__content-wrapper{
+            margin-top: -18.625rem;
+            gap: 2rem;
+        }
+        &__title{
+            @include dt-page-header;
+        }
     }
     @include desktop{
+        margin-bottom: 18.75rem;
+        &__img{
+            max-height: 59vh
+        }
+        &__content-wrapper{
+            margin-top: -22rem;
+            gap: 2rem;
+        }
+        &__title{
+            @include dt-page-header;
+        }
 
     }
 }
