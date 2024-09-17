@@ -1,0 +1,41 @@
+@import "../../App.scss";
+
+
+.home{
+
+}
+
+.hero{
+    margin-bottom: 200px;
+
+    &__img{
+        width: 100%;
+        max-height: 45vh;
+        z-index: 1;
+    }
+    &__content-wrapper{
+        margin-top: -250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+    }
+    &__title{
+        @include page-header;
+        z-index: 2;
+        background-color: $secondary-green;
+        padding: 15px;
+        border-radius: 5px;
+        border: solid $dark-green 2px;
+    }
+    &__search{
+        z-index: 2;
+    }
+
+    @include tablet{
+
+    }
+    @include desktop{
+
+    }
+}
