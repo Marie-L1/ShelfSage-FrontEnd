@@ -5,7 +5,7 @@ import backgroundImage from "../../assets/images/shelf-img.jpg";
 import SavedBooks from "../../components/BookLists/SavedList.jsx";
 
 function Shelf() {
-  const { user, token } = useAuth();
+  const { user } = useAuth();
 
   return (
     <section className="home">

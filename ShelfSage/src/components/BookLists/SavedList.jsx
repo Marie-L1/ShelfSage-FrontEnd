@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import APIhandler from "../../script/apiHandler";
-import "./BookList.scss";
+import "./BookListScroll.scss";
 
 function SavedBooks() {
     const [books, setBooks] = useState([]);

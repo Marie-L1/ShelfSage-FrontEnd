@@ -1,39 +1,64 @@
-import React from 'react'
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import APIhandler from "../../script/apiHandler";
+import "./Modal.scss";
 
-function Modal() {
-  const { id } = useParams();
-  const [book, setBook] = useState(null);
+function BookModal({ bookId, onClose }) {
+    const [book, setBook] = useState(null);
+    const [error, setError] = useState(null);
+    const [isAdding, setIsAdding] = useState(false);
+    const api = new APIhandler();
+    const token = localStorage.getItem('authToken'); 
 
-  useEffect(() =>{
-    const fetchBook = async () => {
-      try{
-        const response = await axios.get(`/api/books/${id}`);
-        setBook(response.data)
-      }catch(error){
-        console.error("Error fetching book details");
-      }
+    useEffect(() => {
+        const fetchBookDetails = async () => {
+            try {
+                const bookData = await api.getBookDetails(bookId);
+                setBook(bookData);
+            } catch (error) {
+                setError("Error fetching book details");
+            }
+        };
+        fetchBookDetails();
+    }, [bookId]);
+
+    const handleAddToShelf = async () => {
+        setIsAdding(true);
+        try {
+            await api.addBookToShelf(token, bookId);
+            alert("Book added to your shelf!");
+        } catch (error) {
+            setError("Error adding book to shelf");
+        } finally {
+            setIsAdding(false);
+        }
     };
-    fetchBook();
-  }, [id]);
 
+    // If book data isn't available, show a loader or nothing
+    if (!book) return null;
 
-  return (
-    <Modal className="">
-      <div className="">
-        <img src={book.coverImage} alt={book.title} className=""/>
-        <h2 className="">{book.title}</h2>
-      </div>
-
-      <ul className="">
-        <li className="">Author: {book.author}</li>
-        <li className="">Description: {book.descirption}</li>
-        <li className="">Genre: {book.genre}</li>
-        <li className="">Category: {book.category}</li>
-      </ul>
-    </Modal>
-  )
+    return (
+        <div className="book-modal">
+            <button className="book-modal__close" onClick={onClose}>X</button>
+            {error && <p className="book-modal__error">{error}</p>}
+            <h2 className="book-modal__title">{book.title}</h2>
+            <img
+                className="book-modal__cover"
+                src={book.coverImage || "/path/to/default-cover.jpg"} // Provide a fallback if no coverImage
+                alt={book.title}
+            />
+            <p className="book-modal__author">{book.author || "Unknown Author"}</p>
+            <p className="book-modal__description">
+                {book.description || "No description available."}
+            </p>
+            <button
+                className="book-modal__add-button"
+                onClick={handleAddToShelf}
+                disabled={isAdding}
+            >
+                {isAdding ? "Adding..." : "Add to Shelf"}
+            </button>
+        </div>
+    );
 }
 
-export default Modal;
+export default BookModal;

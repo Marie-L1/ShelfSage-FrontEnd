@@ -53,24 +53,35 @@ class APIhandler {
     // Fetch all books on the user's shelf - requires token
     async getUserShelf(token) {
         try {
-            const response = await axios.get(`${this.baseURL}/books/shelf/${token}`, {
+            const response = await axios.get(`${this.baseURL}/books/shelf`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            return response.data; // Expecting shelf data
+            return response.data; 
         } catch (error) {
             console.error("Error fetching user's shelf", error);
         }
     }
 
     // Add a book to user's shelf - requires token
-    async addBookToShelf(token, bookData){
+    async addBookToShelf(token, bookId){
         try {
-            const response = await axios.post(`${this.baseURL}/shelf`, bookData, {
+            const response = await axios.post(`${this.baseURL}/shelf/add`, { bookId }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            return response.data; // Expecting success message or updated data
+            return response.data; 
         } catch (error) {
             console.error("Error adding book to shelf", error);
+        }
+    }
+
+    // Get book details for modal
+    async getBookDetails(bookId) {
+        try {
+            const response = await axios.get(`${this.baseURL}/books/details/${bookId}`);
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching book details", error);
+            throw error;
         }
     }
 

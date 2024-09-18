@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import APIhandler from "../../script/apiHandler";
-import "./BookList.scss";
+import "./BookListScroll.scss";
+import BookModal from "../Modal/Modal";
+
 
 function PopularBooks() {
     const [books, setBooks] = useState([]);
     const [error, setError] = useState(null);
     const api = new APIhandler(); // Create an instance of the API handler
+    const [selectedBookId, setSelectedBookId] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false); // Track modal state
 
     useEffect(() => {
         const fetchPopularBooks = async () => {
@@ -24,13 +28,25 @@ function PopularBooks() {
         fetchPopularBooks();
     }, [api]);
 
+
+    const openModal = (bookId) => {
+        setSelectedBookId(bookId); // Set the selected book ID
+        setIsModalOpen(true); // Open the modal
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false); // Close the modal
+        setSelectedBookId(null); // Clear the selected book ID
+    };
+
+
     return (
         <div className="book-list">
         {error ? (
             <p>{error}</p> // Display error if any
         ) : (
             books.map((book) => (
-                <div key={book.id} className="book-list__wrapper">
+                <div key={book.id} className="book-list__wrapper" onClick={() => openModal(book.id)}>
                     <img 
                         className="book-list__cover" 
                         src={book.coverImage}
@@ -41,6 +57,10 @@ function PopularBooks() {
                 </div>
             ))
         )}
+
+            {isModalOpen && (
+                <BookModal bookId={selectedBookId} onClose={closeModal} />
+            )}
     </div>
     );
 }

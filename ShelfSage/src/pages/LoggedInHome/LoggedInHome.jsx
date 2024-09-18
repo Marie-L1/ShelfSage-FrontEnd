@@ -6,6 +6,7 @@ import backgroundImage from '../../assets/images/pages-img.jpg';
 import PopularBooksList from "../../components/BookLists/PopularBooks";
 
 function Home() {
+
   return (
     <section className="home">
       <div className="hero">
@@ -16,7 +17,7 @@ function Home() {
         </div>
       </div>
       <div className="popular-books">
-        <h2>Popular Books</h2>
+        <h2 className="popular-books__title">Popular Books</h2>
         <PopularBooksList />
       </div>
     </section>
