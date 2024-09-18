@@ -2,7 +2,7 @@ import axios from "axios";
 
 class APIhandler {
     constructor(){
-        this.baseURL = "https://localhost/8080";
+        this.baseURL = "http://localhost:8080";
         this.googleBookBaseUrl = "https://googleapis.com/books/v1";
         this.googleBooksAPIKey = "AIzaSyBQRW5bSf7I0rLG_I3oDv5rGN4RT8gkkh0";
     }
@@ -102,12 +102,7 @@ class APIhandler {
     // Search for books by query
     async searchBooks(query) {
         try{
-            const response = await axios.get(`${this.baseURL}/search`, {
-                params: {
-                    q: query,
-                    key: this.googleBooksAPIKey,
-                },
-            });
+            const response = await axios.get(`${this.baseURL}/search`);
             return response.data.items;
         }catch(error){
             console.error("Error fetching books from API");
@@ -117,11 +112,7 @@ class APIhandler {
     // Fetch details of books by Volume Id
     async getBookDetails(volumeId){
         try{
-            const response = await axios.get(`${this.baseURL}/books/${volumeId}`, {
-                params: {
-                    key: this.googleBooksAPIKey,
-                },
-            });
+            const response = await axios.get(`${this.baseURL}/books/${volumeId}`);
             return response.data.items;
         }catch{
             console.error("Error fetching book details");
@@ -131,12 +122,8 @@ class APIhandler {
     // Fetch popular books
     async getPopularBooks() {
         try {
-            const response = await axios.get(`${this.baseURL}/books/popular`, {
-                params: {
-                    key: this.googleBooksAPIKey,
-                },
-            });
-            return response.data.items; // Return the list of popular books
+            const response = await axios.get(`${this.baseURL}/books/popular`);
+            return response.data;
         } catch (error) {
             console.error('Error fetching popular books', error);
         }
