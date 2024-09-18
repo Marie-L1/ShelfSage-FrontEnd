@@ -51,9 +51,9 @@ class APIhandler {
     }
 
     // Fetch all books on the user's shelf - requires token
-    async getUserShelf(token){
+    async getUserShelf(token) {
         try {
-            const response = await axios.get(`${this.baseURL}/shelf`, {
+            const response = await axios.get(`${this.baseURL}/books/shelf/${token}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data; // Expecting shelf data

@@ -1,10 +1,11 @@
 import React from "react";
 import "./Shelf.scss";
 import { useAuth } from "../../script/AuthContent.jsx";
-import backgroundImage from "../../assets/images/shelf-img.jpg"
+import backgroundImage from "../../assets/images/shelf-img.jpg";
+import SavedBooks from "../../components/BookLists/SavedList.jsx";
 
 function Shelf() {
-  const { user } = useAuth();
+  const { user, token } = useAuth();
 
   return (
     <section className="home">
@@ -15,7 +16,7 @@ function Shelf() {
       </div>
     </div>
     <div className="user-books">
-
+    <SavedBooks />
     </div>
   </section>
   )

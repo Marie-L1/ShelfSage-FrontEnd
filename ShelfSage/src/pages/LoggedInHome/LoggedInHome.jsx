@@ -3,7 +3,7 @@ import "./LoggedInHome.scss";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import backgroundImage from '../../assets/images/pages-img.jpg';
-import PopularBooksList from "../../components/BookList/PopularBooks";
+import PopularBooksList from "../../components/BookLists/PopularBooks";
 
 function Home() {
   return (
