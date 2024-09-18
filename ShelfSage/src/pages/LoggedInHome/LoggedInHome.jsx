@@ -3,6 +3,7 @@ import "./LoggedInHome.scss";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import backgroundImage from '../../assets/images/pages-img.jpg';
+import PopularBooksList from "../../components/BookList/PopularBooks";
 
 function Home() {
   return (
@@ -16,7 +17,7 @@ function Home() {
       </div>
       <div className="popular-books">
         <h2>Popular Books</h2>
-        
+        <PopularBooksList />
       </div>
     </section>
   )

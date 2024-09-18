@@ -2,7 +2,9 @@ import axios from "axios";
 
 class APIhandler {
     constructor(){
-        this.baseURL = process.env.REACT_APP_BACKEND_URL;
+        this.baseURL = "https://localhost/8080";
+        this.googleBookBaseUrl = "https://googleapis.com/books/v1";
+        this.googleBooksAPIKey = "AIzaSyBQRW5bSf7I0rLG_I3oDv5rGN4RT8gkkh0";
     }
 
     // User login
@@ -94,6 +96,53 @@ class APIhandler {
             return false; // logout failure
         }
     }
+
+    // Google Book API
+
+    // Search for books by query
+    async searchBooks(query) {
+        try{
+            const response = await axios.get(`${this.baseURL}/search`, {
+                params: {
+                    q: query,
+                    key: this.googleBooksAPIKey,
+                },
+            });
+            return response.data.items;
+        }catch(error){
+            console.error("Error fetching books from API");
+        }
+    };
+
+    // Fetch details of books by Volume Id
+    async getBookDetails(volumeId){
+        try{
+            const response = await axios.get(`${this.baseURL}/books/${volumeId}`, {
+                params: {
+                    key: this.googleBooksAPIKey,
+                },
+            });
+            return response.data.items;
+        }catch{
+            console.error("Error fetching book details");
+        }
+    };
+
+    // Fetch popular books
+    async getPopularBooks() {
+        try {
+            const response = await axios.get(`${this.baseURL}/books/popular`, {
+                params: {
+                    key: this.googleBooksAPIKey,
+                },
+            });
+            return response.data.items; // Return the list of popular books
+        } catch (error) {
+            console.error('Error fetching popular books', error);
+        }
+    };
+
+
 }
 
 export default APIhandler;
