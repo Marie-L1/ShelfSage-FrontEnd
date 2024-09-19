@@ -17,7 +17,7 @@
 .book-modal-content {
     background-color: #fff;
     margin: 10% auto;
-    padding: 26.25rem 18.75rem 21.875rem 18.75rem;
+    padding: 26.25rem 18.75rem 350px 300px;
     border: .0625rem solid #888;
     max-width: 37.5rem;
     @include flex-column;
@@ -93,9 +93,9 @@
         &__title{
             margin-top: -350px;
         }
-        &__description{
-            margin: 0 -6.25rem;
-        }
+        // &__description{
+        //     margin: 0 -6.25 -6.25rem -6.25rem;
+        // }
     }
     @include desktop{
         max-width: 38rem;

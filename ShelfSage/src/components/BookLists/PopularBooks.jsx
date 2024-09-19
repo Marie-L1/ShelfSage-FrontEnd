@@ -4,7 +4,7 @@ import "./BookListScroll.scss";
 import BookModal from "../Modal/Modal";
 
 
-function PopularBooks() {
+function PopularBooks({id, token}) {
     const [books, setBooks] = useState([]);
     const [error, setError] = useState(null);
     const api = new APIhandler(); // Create an instance of the API handler
@@ -40,6 +40,17 @@ function PopularBooks() {
         setSelectedBook(null); 
     };
 
+     // Handle "Add to Shelf"
+    const addToShelf = async ({id}) => {
+        try {
+        await api.addBookToShelf({id, token});
+        console.log(`Book ${id} added to shelf`);
+        closeModal(); // Close the modal after adding to the shelf
+        } catch (error) {
+        console.error("Error adding book to shelf", error);
+        }
+    };
+
 
     return (
         <div className="book-list">
@@ -67,6 +78,7 @@ function PopularBooks() {
         description={selectedBook.description}
         coverImage={selectedBook.coverImage} 
         onClose={closeModal} 
+        onAddToShelf={addToShelf}
     />
 )}
     </div>
