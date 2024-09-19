@@ -29,21 +29,21 @@ function PopularBooks() {
     }, [api]);
 
 
-    const openModal = (bookId) => {
-        setSelectedBookId(bookId); // Set the selected book ID
+    const openModal = (id) => {
+        setSelectedBookId(id); // Set the selected book ID
         setIsModalOpen(true); // Open the modal
     };
 
     const closeModal = () => {
-        setIsModalOpen(false); // Close the modal
-        setSelectedBookId(null); // Clear the selected book ID
+        setIsModalOpen(false); 
+        setSelectedBookId(null); 
     };
 
 
     return (
         <div className="book-list">
         {error ? (
-            <p>{error}</p> // Display error if any
+            <p>{error}</p> 
         ) : (
             books.map((book) => (
                 <div key={book.id} className="book-list__wrapper" onClick={() => openModal(book.id)}>
@@ -59,7 +59,7 @@ function PopularBooks() {
         )}
 
             {isModalOpen && (
-                <BookModal bookId={selectedBookId} onClose={closeModal} />
+                <BookModal id={selectedBookId} onClose={closeModal} />
             )}
     </div>
     );

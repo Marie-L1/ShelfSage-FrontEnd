@@ -3,8 +3,6 @@ import axios from "axios";
 class APIhandler {
     constructor(){
         this.baseURL = "http://localhost:8080";
-        this.googleBookBaseUrl = "https://googleapis.com/books/v1";
-        this.googleBooksAPIKey = "AIzaSyBQRW5bSf7I0rLG_I3oDv5rGN4RT8gkkh0";
     }
 
     // User login
@@ -72,18 +70,7 @@ class APIhandler {
         } catch (error) {
             console.error("Error adding book to shelf", error);
         }
-    }
-
-    // Get book details for modal
-    async getBookDetails(bookId) {
-        try {
-            const response = await axios.get(`${this.baseURL}/books/details/${bookId}`);
-            return response.data;
-        } catch (error) {
-            console.error("Error fetching book details", error);
-            throw error;
-        }
-    }
+    };
 
     // Get book recommendation - requires token
     async getBookRec(token){
@@ -113,20 +100,10 @@ class APIhandler {
     // Search for books by query
     async searchBooks(query) {
         try{
-            const response = await axios.get(`${this.baseURL}/search`);
+            const response = await axios.get(`${this.baseURL}/search.json`);
             return response.data.items;
         }catch(error){
             console.error("Error fetching books from API");
-        }
-    };
-
-    // Fetch details of books by Volume Id
-    async getBookDetails(volumeId){
-        try{
-            const response = await axios.get(`${this.baseURL}/books/${volumeId}`);
-            return response.data.items;
-        }catch{
-            console.error("Error fetching book details");
         }
     };
 
@@ -137,6 +114,16 @@ class APIhandler {
             return response.data;
         } catch (error) {
             console.error('Error fetching popular books', error);
+        }
+    };
+
+    // Fetch details of books by book Id
+    async getBookDetails(id){
+        try{
+            const response = await axios.get(`${this.baseURL}/books/${id}`, {id});
+            return response.data;
+        }catch{
+            console.error("Error fetching book details");
         }
     };
 
