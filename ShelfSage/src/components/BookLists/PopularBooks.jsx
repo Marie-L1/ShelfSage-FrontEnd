@@ -8,7 +8,7 @@ function PopularBooks() {
     const [books, setBooks] = useState([]);
     const [error, setError] = useState(null);
     const api = new APIhandler(); // Create an instance of the API handler
-    const [selectedBookId, setSelectedBookId] = useState(null);
+    const [selectedBook, setSelectedBook] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false); // Track modal state
 
     useEffect(() => {
@@ -29,14 +29,15 @@ function PopularBooks() {
     }, [api]);
 
 
-    const openModal = (id) => {
-        setSelectedBookId(id); // Set the selected book ID
-        setIsModalOpen(true); // Open the modal
+    const openModal = (book) => {
+        console.log("opening modal for book:", book)
+        setSelectedBook(book); 
+        setIsModalOpen(true); 
     };
 
     const closeModal = () => {
         setIsModalOpen(false); 
-        setSelectedBookId(null); 
+        setSelectedBook(null); 
     };
 
 
@@ -46,7 +47,7 @@ function PopularBooks() {
             <p>{error}</p> 
         ) : (
             books.map((book) => (
-                <div key={book.id} className="book-list__wrapper" onClick={() => openModal(book.id)}>
+                <div key={book.id} className="book-list__wrapper" onClick={() => openModal(book)}>
                     <img 
                         className="book-list__cover" 
                         src={book.coverImage}
@@ -58,9 +59,16 @@ function PopularBooks() {
             ))
         )}
 
-            {isModalOpen && (
-                <BookModal id={selectedBookId} onClose={closeModal} />
-            )}
+{isModalOpen && selectedBook && (
+    <BookModal 
+        id={selectedBook.id} 
+        title={selectedBook.title} 
+        author={selectedBook.author[0]} 
+        description={selectedBook.description}
+        coverImage={selectedBook.coverImage} 
+        onClose={closeModal} 
+    />
+)}
     </div>
     );
 }

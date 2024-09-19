@@ -1,105 +1,112 @@
 @import "../../App.scss";
 
-.custom-modal {
+.book-modal {
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    @include justifyContent-alignItems-center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.custom-modal-content {
+.book-modal-content {
     background-color: #fff;
     margin: 10% auto;
-    padding: 31.25rem 16.875rem;
+    padding: 26.25rem 18.75rem 21.875rem 18.75rem;
     border: .0625rem solid #888;
-    width: 90%;
-    max-width: 20rem;
+    max-width: 37.5rem;
     @include flex-column;
     flex-wrap: wrap;
+    gap: 1.25rem;
     align-content: center;
     position: relative;
 
-    &__close{
-        width: 1.5rem;
-        height: 1.5rem;
-        display: flex;
-        justify-content: flex-end;
-        margin: -1rem 0 1rem 21rem;
-    }
+
     &__title{
-        margin-bottom: -1.5rem;
+        margin: -24rem 0 -1rem -0.625rem;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        @include page-header;
     }
-    &__confirm{
-        margin-bottom: 12rem;
+    &__cover{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15.625rem;
+        height: 21.875rem;
+    }
+    &__author{
+        @include body-small;
+        display: flex;
+        justify-content: center;
+        margin-bottom: -1.25rem;
+    }
+    &__description{
+        margin: -1.25rem -6.25rem -31.25rem -6.25rem;
+        @include body-medium;
+    }
+    &__buttons{
+        display: flex;
+        flex-flow: row-reverse;
+        margin-top: 660px;
+        align-items: baseline;
+        justify-content: center;
+        gap: .625rem;
+        @include labels-links-buttons;
+        z-index: 1001;
+        position: absolute;
+    }
+    &__close-btn{
+        width: 6rem;
+    }
+    &__add-btn{
+        width: 7.5rem;
+    }
+    &__close-btn, &__add-btn{
+        height: 2rem;
+        background-color: $primary-green;
+        color: $dark-green;
+        border-radius: .25rem;
+        @include border-dark-green;
+
+        &__hover{
+            background-color: $dark-green;
+            color: $primary-light;
+        }
+
     }
     @include tablet{
         max-width: 38rem;
         width: 100%;
-        padding: 1.25rem 15.625rem;
+        padding: 25rem 18.75rem;
 
         &__close{
             margin: 1rem 0 .625rem 32rem;
         }
         &__title{
-            margin-bottom: -1.5rem;
+            margin-top: -350px;
         }
-        &__confirm{
-            margin-bottom: -9.375rem;
+        &__description{
+            margin: 0 -6.25rem;
         }
     }
     @include desktop{
         max-width: 38rem;
         width: 100%;
-        padding: 1.25rem 15.625rem;
+        padding: 25rem 18.75rem 21.875rem 18.75rem;
 
-        &__close{
-            margin: 0.625rem 0 .625rem 32rem;
-            max-width: 38rem;
-        }
         &__title{
-            margin-bottom: -1.5rem;
+            margin: -24rem 0 -1rem -0.625rem;
         }
         &__confirm{
             margin-bottom: -9.375rem;
         }
-    }
-}
-
-.custom-modal-actions {
-    @include justify-content-center;
-
-    @include tablet{
-        justify-content: flex-end;
-    }
-    @include desktop{
-        justify-content: flex-end;
-    }
-}
-
-.btn-delete{
-    background-color: $dark-green;
-    color: $primary-light;
-}
-
-.btn-cancel{
-    background-color: $primary-light;
-}
-
-.btn-cancel, .btn-delete {
-    margin-left: .625rem;
-    padding: .5rem 3.9375rem;
-    border-radius: 1.25rem;
-    border: .0625rem solid $brown;
-    margin: 2.5rem 0 .625rem .625rem; 
-
-    @include tablet{
-        padding: .5rem 1rem;
-    }
-    @include desktop{
-        padding: .5rem 1rem;
     }
 }

@@ -1,79 +1,32 @@
-import React, { useState, useEffect } from "react";
-import APIhandler from "../../script/apiHandler";
+import React from "react";
 import "./Modal.scss";
 
-const BookModal = ({ id }) => {
-  const [book, setBook] = useState(null);
-  const [error, setError] = useState(null);
-  const [isAdding, setIsAdding] = useState(false);
-  const apiHandler = new APIhandler(); // Create an instance of APIhandler
-
-  useEffect(() => {
-      const fetchBookDetails = async () => {
-          try {
-              if (!id) {
-                  console.error("No ID provided");
-                  return;
-              }
-
-              console.log("Fetching book details for ID:", id);
-              const bookData = await apiHandler.getBookDetails(id);
-              console.log("Book data received:", bookData);
-
-              if (bookData) {
-                  setBook(bookData);
-              } else {
-                  setError("No book data found");
-              }
-          } catch (error) {
-              setError("Error fetching book details");
-              console.error("Error fetching book details:", error);
-          }
-      };
-
-      fetchBookDetails();
-  }, [id]);
-
-  const handleAddToShelf = async () => {
-      setIsAdding(true);
-      try {
-          await apiHandler.addBookToShelf(id);
-          alert("Book added to your shelf!");
-      } catch (error) {
-          setError("Error adding book to shelf");
-      } finally {
-          setIsAdding(false);
-      }
-  };
-
-  if (!book) return null;
-
-    // If book data isn't available, show a loader or nothing
-    if (!book) return null;
-
-    return (
-        <div className="book-modal">
-            <button className="book-modal__close">X</button>
-            {error && <p className="book-modal__error">{error}</p>}
-            <h2 className="book-modal__title">{book.title}</h2>
+const BookModal = ({ id, title, author, description, coverImage, onClose }) => {
+  return (
+    <div className="book-modal">
+        <div className="book-modal-content">
+            <h2 className="book-modal-content__title">{title}</h2>
             <img
-                className="book-modal__cover"
-                src={book.coverImage} 
-                alt={book.title}
+                className="book-modal-content__cover"
+                src={coverImage} 
+                alt={title}
             />
-            <p className="book-modal__author">{book.author}</p>
-            <p className="book-modal__description">
-                {book.description}
+            <p className="book-modal-content__author">by {author}</p>
+            <p className="book-modal-content__description">
+                {description}
             </p>
-            <button
-                className="book-modal__add-button"
-                onClick={handleAddToShelf}
-                disabled={isAdding}
-            >
-                {isAdding ? "Adding..." : "Add to Shelf"}
-            </button>
         </div>
-    );
+        <div className="book-modal-content__buttons">
+                <button className="book-modal-content__close-btn" onClick={onClose}>Close</button>
+                <button
+                    className="book-modal-content__add-btn"
+                    onClick={() => console.log(`Adding book ${id} to shelf`)} // Add your actual handler here
+                >
+                    Add to Shelf
+                </button>
+            </div>
+    </div>
+  );
 }
 
 export default BookModal;
