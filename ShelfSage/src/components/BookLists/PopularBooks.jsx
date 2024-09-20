@@ -10,6 +10,9 @@ function PopularBooks({id, token}) {
     const api = new APIhandler(); // Create an instance of the API handler
     const [selectedBook, setSelectedBook] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false); // Track modal state
+    const [userId, setUserId] = useState(null)
+    const userToken = localStorage.getItem("token")
+
 
     useEffect(() => {
         const fetchPopularBooks = async () => {
@@ -26,7 +29,20 @@ function PopularBooks({id, token}) {
             }
         };
         fetchPopularBooks();
-    }, [api]);
+    }, []);
+
+    useEffect(() => {
+        const getUserInfo = async () => {
+            try{
+                const userId = await api.isLoggedIn(userToken)
+                setUserId(userId.user_id)
+            }
+            catch(error){
+                console.log("No user found")
+            }
+        getUserInfo()
+        }
+    },[userId])
 
 
     const openModal = (book) => {
@@ -41,10 +57,11 @@ function PopularBooks({id, token}) {
     };
 
      // Handle "Add to Shelf"
-    const addToShelf = async ({id}) => {
+    const addToShelf = async () => {
+        const bookId = selectedBook?.id
         try {
-        await api.addBookToShelf({id, token});
-        console.log(`Book ${id} added to shelf`);
+        await api.addBookToShelf(userToken, userId, bookId);
+        console.log(`Book ${bookId} added to shelf`);
         closeModal(); // Close the modal after adding to the shelf
         } catch (error) {
         console.error("Error adding book to shelf", error);

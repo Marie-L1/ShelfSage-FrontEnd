@@ -22,7 +22,7 @@ const BookModal = ({ id, title, author, description, coverImage, onClose, onAddT
                     className="book-modal-content__add-btn"
                     onClick={() => {
                         console.log(`Adding book ${id} to shelf`);
-                        onAddToShelf({token, id}); // Trigger the function passed as prop
+                        onAddToShelf(); // Trigger the function passed as prop
                     }}
                     >
                     Add to Shelf

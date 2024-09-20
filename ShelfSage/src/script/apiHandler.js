@@ -49,7 +49,7 @@ class APIhandler {
     }
 
     // Fetch all books on the user's shelf - requires token
-    async getUserShelf(token, id) {
+    async getUserShelf(token) {
         try {
             const response = await axios.get(`${this.baseURL}/books/shelf`, {
                 headers: { Authorization: `Bearer ${token}` }
@@ -61,9 +61,9 @@ class APIhandler {
     }
 
     // Add a book to user's shelf - requires token
-    async addBookToShelf(token, id){
+    async addBookToShelf(token, userId, bookId){
         try {
-            const response = await axios.post(`${this.baseURL}/book/shelf/add`, { bookId: id }, {
+            const response = await axios.post(`${this.baseURL}/books/shelf/add`, { user_id: userId, book_id: bookId }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data; 

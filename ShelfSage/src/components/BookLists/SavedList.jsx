@@ -9,8 +9,13 @@ function SavedBooks() {
 
     useEffect(() => {
         const fetchSavedBooks = async () => {
+            const token = localStorage.getItem("token") // passing token correctly
+            if (!token) {
+                setError("No authentication token found");
+                return; 
+            }
             try {
-                const booksData = await api.getUserShelf("authToken");
+                const booksData = await api.getUserShelf(token); 
                 if (Array.isArray(booksData)) {
                     setBooks(booksData); 
                 } else {
@@ -22,7 +27,7 @@ function SavedBooks() {
             }
         };
         fetchSavedBooks();
-    }, [api]);
+    }, []); 
 
     return (
         <div className="book-list">
