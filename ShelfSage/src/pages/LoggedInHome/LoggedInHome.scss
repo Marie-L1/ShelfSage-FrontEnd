@@ -1,9 +1,10 @@
-@import "../../App.scss";
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
 
 
-.home{
-    background-color: $primary-light;
-}
+// .home{
+//     background-color: $primary-light;
+// }
 
 .hero{
     margin-bottom: 12.5rem;
@@ -62,7 +63,13 @@
     }
 }
 
-.popular-books{
+.book-list-column{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.list-books{
 
     &__title{
         margin: 30px;

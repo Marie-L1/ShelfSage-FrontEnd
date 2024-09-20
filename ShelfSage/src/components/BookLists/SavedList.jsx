@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import APIhandler from "../../script/apiHandler";
-import "./BookListScroll.scss";
+import "./SavedList.scss";
 
 function SavedBooks() {
     const [books, setBooks] = useState([]);
@@ -30,20 +30,20 @@ function SavedBooks() {
     }, []); 
 
     return (
-        <div className="book-list">
+        <div className="saved-list">
         {error ? (
             <p>{error}</p> // Display error if any
         ) : (
             books.map((book) => (
-                <div key={book.id} className="book-list__wrapper">
-                    <img 
-                        className="book-list__cover" 
+                <ul key={book.id} className="saved-list__wrapper">
+                    <li className="saved-list__item"><img 
+                        className="saved-list__cover" 
                         src={book.coverImage}
                         alt={book.title} 
-                    />
-                    <h3 className="book-list__title">{book.title}</h3>
-                    <p className="book-list__author">{book.author[0]}</p>
-                </div>
+                    /></li>
+                    <li className="saved-list__item"><h3 className="saved-list__title">{book.title}</h3></li>
+                    <li className="saved-list__item"><p className="saved-list__author">{book.author[0]}</p></li>
+                </ul>
             ))
         )}
     </div>

@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import backgroundImage from '../../assets/images/pages-img.jpg';
 import PopularBooksList from "../../components/BookLists/PopularBooks";
+import FantasyBooks from "../../components/BookLists/FantasyList";
+import AuthorBooks from "../../components/BookLists/AuthorList";
+import NonFictionBooks from "../../components/BookLists/NonFictionList";
 
 function Home() {
 
@@ -16,10 +19,25 @@ function Home() {
           <SearchBar classname="hero__search" />
         </div>
       </div>
-      <div className="popular-books">
-        <h2 className="popular-books__title">Popular Books</h2>
-        <PopularBooksList />
-      </div>
+      <section className="book-lists-column">
+        <div className="list-books">
+          <h2 className="list-books__title">Popular</h2>
+          <PopularBooksList />
+        </div>
+        <div classname="list-books">
+        <h2 className="list-books__title">Sarah J. Maas</h2>
+          <AuthorBooks />
+        </div>
+        <div classname="list-books">
+        <h2 className="list-books__title">Fantasy</h2>
+          <FantasyBooks />
+        </div>
+        <div classname="list-books">
+        <h2 className="list-books__title">Non-Fiction</h2>
+          <NonFictionBooks />
+        </div>
+      </section>
+      
     </section>
   )
 }

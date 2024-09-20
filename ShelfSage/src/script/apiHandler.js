@@ -117,6 +117,36 @@ class APIhandler {
         }
     };
 
+      // Fetch author books
+      async getAuthorBooks() {
+        try {
+            const response = await axios.get(`${this.baseURL}/books/author`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching Maas books', error);
+        }
+    };
+
+     // Fetch author books
+     async getFantasyBooks() {
+        try {
+            const response = await axios.get(`${this.baseURL}/books/fantasy`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching fantasy books', error);
+        }
+    };
+
+     // Fetch author books
+     async getNonFictionBooks() {
+        try {
+            const response = await axios.get(`${this.baseURL}/books/nonfiction`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching non-fiction books', error);
+        }
+    };
+
     // Fetch details of books by book Id
     async getBookDetails(id){
         try{
