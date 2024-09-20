@@ -4,7 +4,7 @@ import "./BookListScroll.scss";
 import BookModal from "../Modal/Modal";
 
 
-function FantasyBooks({id, token}) {
+function MaasBooks({id, token}) {
     const [books, setBooks] = useState([]);
     const [error, setError] = useState(null);
     const api = new APIhandler(); // Create an instance of the API handler
@@ -15,9 +15,9 @@ function FantasyBooks({id, token}) {
 
 
     useEffect(() => {
-        const fetchFantasyBooks = async () => {
+        const fetchMaasBooks = async () => {
             try {
-                const booksData = await api.getFantasyBooks();
+                const booksData = await api.getMaasBooks();
                 if (Array.isArray(booksData)) {
                     setBooks(booksData); // Ensure booksData is an array
                 } else {
@@ -28,7 +28,7 @@ function FantasyBooks({id, token}) {
                 console.error(error);
             }
         };
-        fetchFantasyBooks();
+        fetchMaasBooks();
     }, []);
 
     useEffect(() => {
@@ -102,4 +102,4 @@ function FantasyBooks({id, token}) {
     );
 }
 
-export default FantasyBooks;
+export default MaasBooks;

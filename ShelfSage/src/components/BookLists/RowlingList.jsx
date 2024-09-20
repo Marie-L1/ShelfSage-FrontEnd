@@ -4,7 +4,7 @@ import "./BookListScroll.scss";
 import BookModal from "../Modal/Modal";
 
 
-function NonFictionBooks({id, token}) {
+function RowlingBooks({id, token}) {
     const [books, setBooks] = useState([]);
     const [error, setError] = useState(null);
     const api = new APIhandler(); // Create an instance of the API handler
@@ -15,9 +15,9 @@ function NonFictionBooks({id, token}) {
 
 
     useEffect(() => {
-        const fetchNonFictionBooks = async () => {
+        const fetchRowlingBooks = async () => {
             try {
-                const booksData = await api.getNonFictionBooks();
+                const booksData = await api.getRowlingBooks();
                 if (Array.isArray(booksData)) {
                     setBooks(booksData); // Ensure booksData is an array
                 } else {
@@ -28,7 +28,7 @@ function NonFictionBooks({id, token}) {
                 console.error(error);
             }
         };
-        fetchNonFictionBooks();
+        fetchRowlingBooks();
     }, []);
 
     useEffect(() => {
@@ -102,4 +102,4 @@ function NonFictionBooks({id, token}) {
     );
 }
 
-export default NonFictionBooks;
+export default RowlingBooks;

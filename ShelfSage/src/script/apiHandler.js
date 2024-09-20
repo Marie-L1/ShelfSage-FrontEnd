@@ -118,9 +118,9 @@ class APIhandler {
     };
 
       // Fetch author books
-      async getAuthorBooks() {
+      async getMaasBooks() {
         try {
-            const response = await axios.get(`${this.baseURL}/books/author`);
+            const response = await axios.get(`${this.baseURL}/books/Maas`);
             return response.data;
         } catch (error) {
             console.error('Error fetching Maas books', error);
@@ -128,9 +128,9 @@ class APIhandler {
     };
 
      // Fetch author books
-     async getFantasyBooks() {
+     async getSciFiBooks() {
         try {
-            const response = await axios.get(`${this.baseURL}/books/fantasy`);
+            const response = await axios.get(`${this.baseURL}/books/scifi`);
             return response.data;
         } catch (error) {
             console.error('Error fetching fantasy books', error);
@@ -138,9 +138,9 @@ class APIhandler {
     };
 
      // Fetch author books
-     async getNonFictionBooks() {
+     async getRowlingBooks() {
         try {
-            const response = await axios.get(`${this.baseURL}/books/nonfiction`);
+            const response = await axios.get(`${this.baseURL}/books/rowling`);
             return response.data;
         } catch (error) {
             console.error('Error fetching non-fiction books', error);

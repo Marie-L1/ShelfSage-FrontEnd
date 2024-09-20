@@ -4,7 +4,7 @@ import "./BookListScroll.scss";
 import BookModal from "../Modal/Modal";
 
 
-function AuthorBooks({id, token}) {
+function SciFiBooks({id, token}) {
     const [books, setBooks] = useState([]);
     const [error, setError] = useState(null);
     const api = new APIhandler(); // Create an instance of the API handler
@@ -15,9 +15,9 @@ function AuthorBooks({id, token}) {
 
 
     useEffect(() => {
-        const fetchAuthorBooks = async () => {
+        const fetchSciFiBooks = async () => {
             try {
-                const booksData = await api.getAuthorBooks();
+                const booksData = await api.getSciFiBooks();
                 if (Array.isArray(booksData)) {
                     setBooks(booksData); // Ensure booksData is an array
                 } else {
@@ -28,7 +28,7 @@ function AuthorBooks({id, token}) {
                 console.error(error);
             }
         };
-        fetchAuthorBooks();
+        fetchSciFiBooks();
     }, []);
 
     useEffect(() => {
@@ -102,4 +102,4 @@ function AuthorBooks({id, token}) {
     );
 }
 
-export default AuthorBooks;
+export default SciFiBooks;

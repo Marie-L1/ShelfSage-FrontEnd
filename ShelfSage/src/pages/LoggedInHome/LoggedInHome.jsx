@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import backgroundImage from '../../assets/images/pages-img.jpg';
 import PopularBooksList from "../../components/BookLists/PopularBooks";
-import FantasyBooks from "../../components/BookLists/FantasyList";
-import AuthorBooks from "../../components/BookLists/AuthorList";
-import NonFictionBooks from "../../components/BookLists/NonFictionList";
+import SciFiBooks from "../../components/BookLists/SciFiList";
+import MaasBooks from "../../components/BookLists/MaasList";
+import RowlingBooks from "../../components/BookLists/RowlingList";
 
 function Home() {
 
@@ -21,22 +21,22 @@ function Home() {
       </div>
       <section className="book-lists-column">
         <div className="list-books">
-          <h2 className="list-books__title">Popular</h2>
+          <h2 className="list-books__title">Classics</h2>
           <PopularBooksList />
         </div>
         <div classname="list-books">
+        <h2 className="list-books__title">Sci Fi</h2>
+          <SciFiBooks />
+        </div>
+        <div classname="list-books">
         <h2 className="list-books__title">Sarah J. Maas</h2>
-          <AuthorBooks />
-        </div>
-        <div classname="list-books">
-        <h2 className="list-books__title">Fantasy</h2>
-          <FantasyBooks />
-        </div>
-        <div classname="list-books">
-        <h2 className="list-books__title">Non-Fiction</h2>
-          <NonFictionBooks />
+          <MaasBooks />
         </div>
       </section>
+      <div classname="list-books">
+        <h2 className="list-books__title">J.k Rowling</h2>
+          <RowlingBooks />
+        </div>
       
     </section>
   )
