@@ -8,16 +8,17 @@ function SearchBar() {
   const [query, setQuery] = useState("");
   const [books, setBooks] = useState([]);
   const navigate = useNavigate();
+  const api = new APIhandler(); // Instantiate API handler
 
   const handleSearch = async (event) => {
     event.preventDefault(); // Prevent form submission from reloading the page
     if (!query) return;
     try {
-      const results = await api.searchBooks(query);
-      setBooks(results);
+      const results = await api.getSearchBooks(query);
+      setBooks(results); // Store search results
       navigate(`/search?q=${encodeURIComponent(query)}`);
     } catch (error) {
-      console.error("Error search for book");
+      console.error("Error searching for books", error);
     }
   };
 
@@ -27,7 +28,7 @@ function SearchBar() {
         type="text"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="Search"
+        placeholder="Search for books"
         className="search__input"
       />
       <button type="submit" className="search__btn">
