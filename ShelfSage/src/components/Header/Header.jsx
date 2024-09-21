@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "../../script/AuthContent.jsx";
 import "./Header.scss";
-import logo from "../../assets/images/SHELFSAGE.png";
+import logo from "../../assets/images/SHELFSAGE-green.png";
 import { Link } from "react-router-dom";
 
 function Header() {

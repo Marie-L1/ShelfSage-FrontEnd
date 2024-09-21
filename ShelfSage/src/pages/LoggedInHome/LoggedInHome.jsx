@@ -20,21 +20,21 @@ function Home() {
         </div>
       </div>
       <section className="book-lists-column">
-        <div className="list-books">
-          <h2 className="list-books__title">Classics</h2>
+        <div className="book-lists-column__items">
+          <h2 className="book-lists-column__title">Classics</h2>
           <PopularBooksList />
         </div>
-        <div classname="list-books">
-        <h2 className="list-books__title">Sci Fi</h2>
+        <div className="book-lists-column__items">
+        <h2 className="book-lists-column__title">Sci Fi</h2>
           <SciFiBooks />
         </div>
-        <div classname="list-books">
-        <h2 className="list-books__title">Sarah J. Maas</h2>
+        <div className="book-lists-column__items">
+        <h2 className="book-lists-column__title">Sarah J. Maas</h2>
           <MaasBooks />
         </div>
       </section>
-      <div classname="list-books">
-        <h2 className="list-books__title">J.k Rowling</h2>
+      <div className="book-lists-column__items">
+        <h2 className="book-lists-column__title">J.k Rowling</h2>
           <RowlingBooks />
         </div>
       

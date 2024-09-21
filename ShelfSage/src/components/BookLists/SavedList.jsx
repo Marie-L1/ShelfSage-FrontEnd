@@ -41,8 +41,8 @@ function SavedBooks() {
                         src={book.coverImage}
                         alt={book.title} 
                     /></li>
-                    <li className="saved-list__item"><h3 className="saved-list__title">{book.title}</h3></li>
-                    <li className="saved-list__item"><p className="saved-list__author">{book.author[0]}</p></li>
+                    {/* <li className="saved-list__item"><h3 className="saved-list__title">{book.title}</h3></li>
+                    <li className="saved-list__item"><p className="saved-list__author">{book.author[0]}</p></li> */}
                 </ul>
             ))
         )}

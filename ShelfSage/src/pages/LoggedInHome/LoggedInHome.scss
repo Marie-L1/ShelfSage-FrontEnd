@@ -63,15 +63,17 @@
     }
 }
 
-.book-list-column{
+.book-lists-column{
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
+    margin-top: -70px;
     
-}
-
-.list-books{
-
     &__title{
-        margin: 30px;
+        @include page-header;
+        margin: 1.875rem 0 0 3.125rem;
+    }
+    &__items{
+        border-bottom: 4px dotted $dark-green;
     }
 }
