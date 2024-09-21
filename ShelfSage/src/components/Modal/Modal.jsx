@@ -1,39 +1,35 @@
-import React from 'react'
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import "./Modal.scss";
 
-function Modal() {
-  const { id } = useParams();
-  const [book, setBook] = useState(null);
-
-  useEffect(() =>{
-    const fetchBook = async () => {
-      try{
-        const response = await axios.get(`/api/books/${id}`);
-        setBook(response.data)
-      }catch(error){
-        console.error("Error fetching book details");
-      }
-    };
-    fetchBook();
-  }, [id]);
-
-
+const BookModal = ({ id, title, author, description, coverImage, onClose, onAddToShelf, token }) => {
   return (
-    <Modal className="">
-      <div className="">
-        <img src={book.coverImage} alt={book.title} className=""/>
-        <h2 className="">{book.title}</h2>
-      </div>
-
-      <ul className="">
-        <li className="">Author: {book.author}</li>
-        <li className="">Description: {book.descirption}</li>
-        <li className="">Genre: {book.genre}</li>
-        <li className="">Category: {book.category}</li>
-      </ul>
-    </Modal>
-  )
+    <div className="book-modal">
+        <div className="book-modal-content">
+            <h2 className="book-modal-content__title">{title}</h2>
+            <img
+                className="book-modal-content__cover"
+                src={coverImage} 
+                alt={title}
+            />
+            <p className="book-modal-content__author">by {author}</p>
+            <p className="book-modal-content__description">
+                {description}
+            </p>
+        </div>
+        <div className="book-modal-content__buttons">
+                <button className="book-modal-content__close-btn" onClick={onClose}>Close</button>
+                <button
+                    className="book-modal-content__add-btn"
+                    onClick={() => {
+                        console.log(`Adding book ${id} to shelf`);
+                        onAddToShelf(); // Trigger the function passed as prop
+                    }}
+                    >
+                    Add to Shelf
+                </button>
+            </div>
+    </div>
+  );
 }
 
-export default Modal;
+export default BookModal;

@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 const AuthContext = createContext();
-const baseURL = "http://localhost:8080"
+const baseURL = "http://localhost:8080";
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
@@ -12,7 +12,7 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
         const fetchUser = async () => {
-            setLoading(true); // Set loading to true when starting to fetch
+            setLoading(true); 
     
             if (token) {
                 try {
@@ -23,13 +23,13 @@ export function AuthProvider({ children }) {
                 } catch (error) {
                     console.error("Error fetching user data", error.response ? error.response.data : error.message);
                     setUser(null);
-                    console.log("token being sent:", token)
+                    setError("Failed to fetch user data.");
                 }
             } else {
-                setUser(null); // Set user to null if no token is available
+                setUser(null); 
             }
     
-            setLoading(false); // Set loading to false after fetch is done
+            setLoading(false); 
         };
     
         fetchUser();
@@ -39,15 +39,18 @@ export function AuthProvider({ children }) {
     const login = async (username, password) => {
         try {
             const response = await axios.post(`${baseURL}/login`, { username, password });
-            const { token, user } = response.data;
+            const { token } = response.data; // Only extract the token if that's what the API returns
             localStorage.setItem('token', token);
             setToken(token);
             setUser(user);
+            // Fetch user data after successful login
+            await fetchUser();
             setError(""); 
         } catch (error) {
             console.error("Login failed", error);
             setToken(null);
             setUser(null);
+            setError("Incorrect username or password."); // Set error message
         }
     };
 
@@ -57,6 +60,7 @@ export function AuthProvider({ children }) {
             setError(""); 
         } catch (error) {
             console.error("Signup failed", error);
+            setError("Signup failed. Please try again."); // Set error message
         }
     };
 

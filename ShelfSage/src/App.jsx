@@ -9,6 +9,7 @@ import LoggedOutHome from "./pages/LoggedOutHome/LoggedOutHome.jsx";
 import Shelf from "./pages/Shelf/Shelf.jsx";
 import Recommendations from "./pages/Recommendations/Recommendations.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
+import SearchResultsPage from "./pages/SearchResults/SearchResults.jsx";
 import LoginForm from "./components/Forms/LoginForm.jsx";
 import SignupForm from "./components/Forms/SignupForm.jsx";
 
@@ -17,6 +18,8 @@ function App() {
   console.log(AuthContent); // debugging
 
   const { user } = useAuth();
+
+  
 
   return (
     <>
@@ -30,6 +33,7 @@ function App() {
               <Route path="/shelf" element={<Shelf />} />
               <Route path="/recommendations" element={<Recommendations />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/search" element={<SearchResultsPage />} />
 
                {/* Redirect any other paths to logged-in home */}
                <Route path="*" element={<Navigate to="/loggedIn" />} />
