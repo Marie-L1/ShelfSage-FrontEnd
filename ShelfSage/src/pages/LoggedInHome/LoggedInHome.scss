@@ -2,9 +2,9 @@
 @use "../../styles/variables" as *;
 
 
-// .home{
-//     background-color: $primary-light;
-// }
+.home{
+    background-color: $primary-light;
+}
 
 .hero{
     margin-bottom: 12.5rem;
@@ -74,6 +74,19 @@
         margin: 1.875rem 0 0 3.125rem;
     }
     &__items{
-        border-bottom: 4px dotted $dark-green;
+        position: relative;
+        
+        &::after { 
+            content: "";
+            position: absolute;
+            left: 50%;
+            width: 90%;
+            height: .125rem;
+            background-color: $dark-green;
+            transform: translateX(-50%);
+        }
+            &::after {
+                bottom: 0;
+            }
     }
 }

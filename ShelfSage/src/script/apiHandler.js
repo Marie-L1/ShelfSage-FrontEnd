@@ -127,10 +127,10 @@ class APIhandler {
         }
     };
 
-     // Fetch J.K Rowling books
-     async getRowlingBooks() {
+     // Fetch Tolkien's books
+     async getTolkienBooks() {
         try {
-            const response = await axios.get(`${this.baseURL}/books/rowling`);
+            const response = await axios.get(`${this.baseURL}/books/tolkien`);
             return response.data;
         } catch (error) {
             console.error('Error fetching non-fiction books', error);

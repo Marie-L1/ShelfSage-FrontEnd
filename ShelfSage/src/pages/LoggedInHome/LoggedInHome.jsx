@@ -6,7 +6,7 @@ import backgroundImage from '../../assets/images/pages-img.jpg';
 import PopularBooksList from "../../components/BookLists/PopularBooks";
 import SciFiBooks from "../../components/BookLists/SciFiList";
 import MaasBooks from "../../components/BookLists/MaasList";
-import RowlingBooks from "../../components/BookLists/RowlingList";
+import TolkienBooks from "../../components/BookLists/TolkienList";
 
 function Home() {
 
@@ -34,8 +34,8 @@ function Home() {
         </div>
       </section>
       <div className="book-lists-column__items">
-        <h2 className="book-lists-column__title">J.k Rowling</h2>
-          <RowlingBooks />
+        <h2 className="book-lists-column__title">J.R.R Tolkien</h2>
+          <TolkienBooks />
         </div>
       
     </section>

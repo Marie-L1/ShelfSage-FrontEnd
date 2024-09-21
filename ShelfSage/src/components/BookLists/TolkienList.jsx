@@ -4,7 +4,7 @@ import "./BookListScroll.scss";
 import BookModal from "../Modal/Modal";
 
 
-function RowlingBooks({id, token}) {
+function TolkienBooks({id, token}) {
     const [books, setBooks] = useState([]);
     const [error, setError] = useState(null);
     const api = new APIhandler(); // Create an instance of the API handler
@@ -15,9 +15,9 @@ function RowlingBooks({id, token}) {
 
 
     useEffect(() => {
-        const fetchRowlingBooks = async () => {
+        const fetchTolkienBooks = async () => {
             try {
-                const booksData = await api.getRowlingBooks();
+                const booksData = await api.getTolkienBooks();
                 if (Array.isArray(booksData)) {
                     setBooks(booksData); // Ensure booksData is an array
                 } else {
@@ -28,7 +28,7 @@ function RowlingBooks({id, token}) {
                 console.error(error);
             }
         };
-        fetchRowlingBooks();
+        fetchTolkienBooks();
     }, []);
 
     useEffect(() => {
@@ -102,4 +102,4 @@ function RowlingBooks({id, token}) {
     );
 }
 
-export default RowlingBooks;
+export default TolkienBooks;
