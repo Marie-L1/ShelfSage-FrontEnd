@@ -1,17 +1,28 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/variables" as *;
 
+
+
 .form{
+    background-image: url("../../assets//images//loggedout-homepage.jpg");
+    background-size: cover;
+    background-position: top;
     @include flex-column-align-center;
 
+    &__section{
+        @include flex-column-align-center;
+        background-color: rgba(255, 255, 255, 0.8); 
+        padding: 2rem; 
+        border-radius: 8px; 
+        max-width: 500px; 
+        margin: 200px auto 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
     &__title{
         padding-top: 3rem;
         margin-bottom: 2rem;
         @include border-bottom-dotted-brown;
         @include page-header;
-    }
-    &__section{
-        @include flex-column-align-center;
     }
     &__username-wrapper,&__email-wrapper, &__password-wrapper {
         @include flex-column-align-center;
@@ -73,15 +84,18 @@
         }
         &__username-input, &__email-input,  &__password-input {
             height: 2.75rem;
-            width: 52vw;
+            width: 38vw;
             padding: 1.5rem;
 
             &::placeholder{
                 @include dt-body-medium;
             }
         }
+        &__section{
+            padding: 2rem 5rem; 
+        }
         &__submit-btn{
-            width: 52vw;
+            width: 38vw;
             padding: .5rem;
             @include dt-labels-links-buttons;
         }
@@ -103,11 +117,14 @@
         }
         &__username-input, &__email-input,  &__password-input {
             height: 3em;
-            width: 45vw;
+            width: 30vw;
             padding: 1.5rem;
         }
+        &__section{
+            padding: 2rem; 
+        }
         &__submit-btn{
-            width: 45vw;
+            width: 30vw;
             padding: .5rem;
             @include dt-labels-links-buttons;
         }

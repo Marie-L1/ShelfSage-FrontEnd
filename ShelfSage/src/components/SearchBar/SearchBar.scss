@@ -9,7 +9,7 @@
         height: 2.5rem;
         @include border-dark-green;
         padding: 1rem;
-        width: 37vw;
+        width: 30vw;
         border-radius: .25rem;
 
         &:focus{
@@ -24,13 +24,13 @@
     @include tablet{
         &__input{
             height: 3rem;
-            width: 40vw;
+            width: 30vw;
         }
     }
     @include desktop{
         &__input{
             height: 3rem;
-            width: 42vw;
+            width: 30vw;
         }
 
     }

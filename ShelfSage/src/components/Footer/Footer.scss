@@ -4,7 +4,7 @@
 .footer{
     @include justifyContent-alignItems-center;
     padding: 50px;
-    background-color: $primary-green;
+    background: linear-gradient(to bottom, $primary-green, $dark-green);
     @include border-top-dotted-brown;
     &__content{
         color: $secondary-green;
