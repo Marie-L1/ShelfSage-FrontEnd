@@ -1,7 +1,6 @@
 import React from "react";
 import "./Profile.scss";
 import { useState, useEffect } from "react";
-import backgroundImage from "../../assets/images/profile-hero.jpg";
 
 function Profile() {
   const [totalBooks, setTotalBooks] = useState(5); // default
@@ -26,12 +25,10 @@ function Profile() {
   return (
     <section className="profile">
       <div className="tracker">
-        <img src={backgroundImage} alt="leaves" className="tracker__img" />
         <form className="tracker__form" onSubmit={handleSetGoal}>
             <label className="tracker__form-title">Set your reading goal for the month:</label>
             <input className="tracker__form-input" type="number" id="goal" defaultValue={totalBooks} min="1" />
             <button className="tracker__form-btn" type="submit">Set Goal</button>
-         </form>
          <div className="progress">
             <div className="progress__bar" style={{ width: `${progressPercentage}%` }}></div>
          </div>
@@ -39,6 +36,7 @@ function Profile() {
         <button className="progress__add-btn" onClick={handleMarkAsRead} disabled={readBooks >= totalBooks}>
               Add Book
         </button>
+         </form>
       </div>
 
   </section>
