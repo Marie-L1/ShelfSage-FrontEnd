@@ -4,16 +4,17 @@
 .header{
     @include justifyContent-alignItems-center;
     flex-flow: column;
-    background: $primary-green;
+    // background: linear-gradient(to right, $primary-green, $dark-green);
+    background-color: $primary-green;
     color: $dark-green;
     padding-bottom: 1.25rem;
+    @include body-large;
     @include border-bottom-dotted-brown;
     &__logo{
-        width: 16rem;
-        height: 16rem;
+        width: 18rem;
+        height: 18rem;
         margin-top: -2.5rem;
     }
-
     @include tablet{
         flex-flow: row;
         padding-bottom: 0;
@@ -21,9 +22,10 @@
         align-content: center;
         gap: 1.875rem;
         padding-left: 3.125rem;
+        @include dt-body-large;
         &__logo{
-            width: 17rem;
-            height: 17rem;
+            width: 20rem;
+            height: 20rem;
             margin: -2.5rem;
         }
     }
@@ -33,6 +35,7 @@
         justify-content: flex-start;
         align-content: center;
         padding-left: 5.625rem;
+        @include dt-body-large;
 
         &__logo{
             width: 18rem;

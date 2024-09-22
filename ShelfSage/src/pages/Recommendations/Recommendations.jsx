@@ -2,6 +2,7 @@ import React from "react";
 import "./Recommendations.scss";
 import { useAuth } from "../../script/AuthContent.jsx";
 import backgroundImage from "../../assets/images/book-stack.jpg"
+import RecBookList from "../../components/BookLists/RecBookList.jsx";
 
 function Recommendations() {
     const { user } = useAuth();
@@ -15,6 +16,7 @@ function Recommendations() {
       </div>
     </div>
     <div className="user-recs">
+      <RecBookList />
 
     </div>
   </section>

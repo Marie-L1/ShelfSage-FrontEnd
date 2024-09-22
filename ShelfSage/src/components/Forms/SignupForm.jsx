@@ -31,8 +31,8 @@ function SignupForm() {
 
   return (
     <section className="form">
-    <h2 className="form__title">Signup</h2>
     <form className="form__section" onSubmit={handleSubmit}>
+    <h2 className="form__title">Signup</h2>
         <div className="form__username-wrapper">
             <label className="form__username-label">Username</label>
             <input
@@ -72,11 +72,11 @@ function SignupForm() {
         </div>
 
         <button className="form__submit-btn" type="submit">Sign Up</button>
+    </form>
 
         <p className="form__switch">
             Already have an account? <Link to="/login" className="form__switch-btn" type="button">Login</Link>
         </p>
-    </form>
 </section>
   )
 }

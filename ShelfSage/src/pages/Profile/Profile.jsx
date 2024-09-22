@@ -41,9 +41,8 @@ function Profile() {
         </button>
       </div>
 
-      <div className="user-info"></div>
-    </section>
-  );
+  </section>
+  )
 }
 
 export default Profile;

@@ -13,7 +13,7 @@ function LoggedOutHome() {
   };
 
   return (
-    <section>
+    <section className="logged-out-home">
         
         {formType === "login" ? (
           <LoginForm onSubmitForm={handleFormSwitch} />

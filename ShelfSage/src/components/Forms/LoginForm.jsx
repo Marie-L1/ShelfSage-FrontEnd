@@ -36,8 +36,8 @@ function LoginForm() {
 
   return (
     <div className="form">
-        <h2 className="form__title">Login</h2>
         <form className="form__section" onSubmit={handleSubmit}>
+        <h2 className="form__title">Login</h2>
             <div className="form__username-wrapper">
                 <label className="form__username-label">Username</label>
                 <input
