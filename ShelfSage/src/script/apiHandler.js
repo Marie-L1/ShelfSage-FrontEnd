@@ -72,17 +72,6 @@ class APIhandler {
         }
     };
 
-    // Get book recommendation - requires token
-    async getBookRec(token){
-        try {
-            const response = await axios.get(`${this.baseURL}/recommendations`, {
-                headers: { Authorization: `Bearer ${token}` }
-            });
-            return response.data; 
-        } catch (error) {
-            console.error("Error fetching book recommendations", error);
-        }
-    }
 
     // Logout user - clear local token
     logoutUser(){
@@ -131,6 +120,16 @@ class APIhandler {
      async getTolkienBooks() {
         try {
             const response = await axios.get(`${this.baseURL}/books/tolkien`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching non-fiction books', error);
+        }
+    };
+
+    // Fetch Recommended books
+    async getRecBooks() {
+        try {
+            const response = await axios.get(`${this.baseURL}/books/recommendations`);
             return response.data;
         } catch (error) {
             console.error('Error fetching non-fiction books', error);
