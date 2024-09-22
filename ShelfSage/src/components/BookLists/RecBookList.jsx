@@ -82,7 +82,7 @@ function RecBooks({ id, token }) {
                 alt={book.title}
               />
               <h3 className="book-list__title">{book.title}</h3>
-              <p className="book-list__author">{book.author}</p>
+              <p className="book-list__author">{book.author[0]}</p>
             </div>
           ))
         )}
@@ -91,7 +91,7 @@ function RecBooks({ id, token }) {
           <BookModal
             id={selectedBook.id}
             title={selectedBook.title}
-            author={selectedBook.author}
+            author={selectedBook.author[0]}
             description={selectedBook.description}
             coverImage={selectedBook.coverImage}
             onClose={closeModal}

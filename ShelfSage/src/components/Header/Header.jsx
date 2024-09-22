@@ -35,7 +35,7 @@ function Header() {
               Recommendations
             </Link>
             <Link
-              to={`/profile`}
+              to={`/tracker`}
               className="header-logged-in__nav-profile"
             >
               Tracker

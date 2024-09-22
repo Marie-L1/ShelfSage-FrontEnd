@@ -8,7 +8,7 @@ import LoggedInHome from "./pages/LoggedInHome/LoggedInHome.jsx";
 import LoggedOutHome from "./pages/LoggedOutHome/LoggedOutHome.jsx";
 import Shelf from "./pages/Shelf/Shelf.jsx";
 import Recommendations from "./pages/Recommendations/Recommendations.jsx";
-import Profile from "./pages/Tracker/Tracker.jsx";
+import Tracker from "./pages/Tracker/Tracker.jsx";
 import SearchResultsPage from "./pages/SearchResults/SearchResults.jsx";
 import LoginForm from "./components/Forms/LoginForm.jsx";
 import SignupForm from "./components/Forms/SignupForm.jsx";
@@ -32,7 +32,7 @@ function App() {
               <Route path="/loggedIn" element={<LoggedInHome />} />
               <Route path="/shelf" element={<Shelf />} />
               <Route path="/recommendations" element={<Recommendations />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/tracker" element={<Tracker />} />
               <Route path="/search" element={<SearchResultsPage />} />
 
                {/* Redirect any other paths to logged-in home */}
