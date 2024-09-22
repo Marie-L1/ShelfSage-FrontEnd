@@ -8,7 +8,7 @@ import LoggedInHome from "./pages/LoggedInHome/LoggedInHome.jsx";
 import LoggedOutHome from "./pages/LoggedOutHome/LoggedOutHome.jsx";
 import Shelf from "./pages/Shelf/Shelf.jsx";
 import Recommendations from "./pages/Recommendations/Recommendations.jsx";
-import Profile from "./pages/Profile/Profile.jsx";
+import Profile from "./pages/Tracker/Tracker.jsx";
 import SearchResultsPage from "./pages/SearchResults/SearchResults.jsx";
 import LoginForm from "./components/Forms/LoginForm.jsx";
 import SignupForm from "./components/Forms/SignupForm.jsx";

@@ -22,26 +22,23 @@ function Header() {
             <Link
               to={`/loggedIn`}
               className="header-logged-in__nav-home"
-              href=""
             >
               Home
             </Link>
-            <Link to={`/shelf`} className="header-logged-in__nav-shelf" href="">
+            <Link to={`/shelf`} className="header-logged-in__nav-shelf">
               Shelf
             </Link>
             <Link
               to={`/recommendations`}
               className="header-logged-in__nav-recs"
-              href=""
             >
               Recommendations
             </Link>
             <Link
               to={`/profile`}
               className="header-logged-in__nav-profile"
-              href=""
             >
-              Profile
+              Tracker
             </Link>
           </nav>
         </div>
