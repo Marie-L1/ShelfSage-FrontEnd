@@ -78,7 +78,7 @@ class APIhandler {
             const response = await axios.get(`${this.baseURL}/recommendations`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            return response.data; // Expecting recommended books
+            return response.data; 
         } catch (error) {
             console.error("Error fetching book recommendations", error);
         }
