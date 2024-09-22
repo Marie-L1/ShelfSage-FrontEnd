@@ -7,16 +7,11 @@ function Profile() {
   const { user } = useAuth();
 
   return (
-    <section className="home">
-    <div className="hero">
-      <img className="hero__img" src={backgroundImage} alt="open books"></img>
-      <div className="hero__content-wrapper">
-        <h2 className="hero__title">{user.username}'s Profile</h2>
-      </div>
-    </div>
-    <form className="update-profile">
+    <section className="profile">
+    <ul className="profile__content">
+      <li><span>Username:</span>{}</li>
 
-    </form>
+    </ul>
   </section>
   )
 }
