@@ -13,10 +13,10 @@
         @include flex-column-align-center;
         background-color: rgba(255, 255, 255, 0.8); 
         padding: 2rem; 
-        border-radius: 8px; 
-        max-width: 500px; 
-        margin: 200px auto 20px auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: .5rem; 
+        max-width: 31.25rem; 
+        margin: 12.5rem auto 1.25rem auto;
+        box-shadow: 0 .25rem .5rem rgba(0, 0, 0, 0.2);
     }
     &__title{
         padding-top: 3rem;

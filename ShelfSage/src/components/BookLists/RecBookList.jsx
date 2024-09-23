@@ -1,59 +1,106 @@
 import React, { useState, useEffect } from "react";
 import APIhandler from "../../script/apiHandler";
-import "../../pages/SearchResults/SearchResults.scss";
+import "./SavedList.scss";
+import BookModal from "../Modal/Modal";
 
-function Recommendations() {
-    const [recommendations, setRecommendations] = useState([]);
-    const [error, setError] = useState(null);
-    const api = new APIhandler();
+function RecBooks({ id, token }) {
+  const [books, setBooks] = useState([]);
+  const [error, setError] = useState(null);
+  const api = new APIhandler(); // Create an instance of the API handler
+  const [selectedBook, setSelectedBook] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Track modal state
+  const [userId, setUserId] = useState(null);
+  const userToken = localStorage.getItem("token");
 
-    useEffect(() => {
-        const fetchRecommendations = async () => {
-            const token = localStorage.getItem("token");
-            if (!token) {
-                setError("No authentication token found");
-                return;
-            }
-            try {
-                const recData = await api.getBookRec(token);
-                if (Array.isArray(recData.recommendations)) {
-                    setRecommendations(recData.recommendations);
-                } else {
-                    setError("No recommendations found");
-                }
-            } catch (error) {
-                setError("Error fetching recommendations");
-                console.error(error);
-            }
-        };
-        fetchRecommendations();
-    }, []);
+  useEffect(() => {
+    const fetchRecBooks = async () => {
+      try {
+        const booksData = await api.getRecBooks();
+        if (Array.isArray(booksData)) {
+          setBooks(booksData); // Ensure booksData is an array
+        } else {
+          setError("No books found");
+        }
+      } catch (error) {
+        setError("Error fetching popular books");
+        console.error(error);
+      }
+    };
+    fetchRecBooks();
+  }, []);
 
-    return (
-        <div className="recommendations">
-            {error ? (
-                <p>{error}</p>
-            ) : (
-                recommendations.map((book) => (
-                    <ul key={book.id} className="recommendations__wrapper">
-                        <li className="recommendations__item">
-                            <img
-                                className="recommendations__cover"
-                                src={book.coverImage}
-                                alt={book.title}
-                            />
-                        </li>
-                        <li className="recommendations__item">
-                            <h3 className="recommendations__title">{book.title}</h3>
-                        </li>
-                        <li className="recommendations__item">
-                            <p className="recommendations__author">{book.author}</p>
-                        </li>
-                    </ul>
-                ))
-            )}
-        </div>
-    );
+  useEffect(() => {
+    const getUserInfo = async () => {
+      try {
+        const userId = await api.isLoggedIn(userToken);
+        setUserId(userId.user_id);
+      } catch (error) {
+        console.log("No user found");
+      }
+      getUserInfo();
+    };
+  }, [userId]);
+
+  const openModal = (book) => {
+    console.log("opening modal for book:", book);
+    setSelectedBook(book);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedBook(null);
+  };
+
+  // Handle "Add to Shelf"
+  const addToShelf = async () => {
+    const bookId = selectedBook?.id;
+    try {
+      await api.addBookToShelf(userToken, userId, bookId);
+      console.log(`Book ${bookId} added to shelf`);
+      closeModal(); // Close the modal after adding to the shelf
+    } catch (error) {
+      console.error("Error adding book to shelf", error);
+    }
+  };
+
+  return (
+    <section className="book-list-container">
+      <div className="book-list">
+        {error ? (
+          <p>{error}</p>
+        ) : (
+          books.map((book) => (
+            <div
+              key={book.id}
+              className="book-list__wrapper"
+              onClick={() => openModal(book)}
+            >
+              <img
+                className="book-list__cover"
+                src={book.coverImage}
+                alt={book.title}
+              />
+              <h3 className="book-list__title">{book.title}</h3>
+              <p className="book-list__author">{book.author[0]}</p>
+            </div>
+          ))
+        )}
+
+        {isModalOpen && selectedBook && (
+          <BookModal
+            id={selectedBook.id}
+            title={selectedBook.title}
+            author={selectedBook.author[0]}
+            description={selectedBook.description}
+            coverImage={selectedBook.coverImage}
+            onClose={closeModal}
+            onAddToShelf={addToShelf}
+          />
+        )}
+      </div>
+    </section>
+  );
 }
 
-export default Recommendations;
+export default RecBooks;

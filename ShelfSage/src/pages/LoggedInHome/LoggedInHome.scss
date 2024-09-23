@@ -1,7 +1,6 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/variables" as *;
 
-
 .home{
     background-color: $primary-light;
 }
@@ -28,7 +27,7 @@
         background-color: $secondary-green;
         padding: .9375rem;
         border-radius: .3125rem;
-        border: solid $dark-green 2px;
+        @include border-dark-green;
     }
     &__search{
         z-index: 2;
@@ -64,10 +63,8 @@
 }
 
 .book-lists-column{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    margin-top: -70px;
+    @include flex-column;
+    margin: -4.375rem 0 1.25rem 0;
     
     &__title{
         @include page-header;
