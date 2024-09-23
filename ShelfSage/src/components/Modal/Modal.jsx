@@ -1,7 +1,7 @@
 import React from "react";
 import "./Modal.scss";
 
-const BookModal = ({ id, title, author, description, coverImage, onClose, onAddToShelf, token }) => {
+const BookModal = ({ id, title, author, description, coverImage, onClose, onAddToShelf }) => {
   return (
     <div className="book-modal">
         <div className="book-modal-content">
@@ -22,7 +22,7 @@ const BookModal = ({ id, title, author, description, coverImage, onClose, onAddT
                     className="book-modal-content__add-btn"
                     onClick={() => {
                         console.log(`Adding book ${id} to shelf`);
-                        onAddToShelf(); // Trigger the function passed as prop
+                        onAddToShelf();
                     }}
                     >
                     Add to Shelf
