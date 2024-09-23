@@ -19,8 +19,6 @@ function App() {
 
   const { user } = useAuth();
 
-  
-
   return (
     <>
       <Router>
@@ -52,6 +50,6 @@ function App() {
       </Router>
     </>
   );
-}
+};
 
 export default App;

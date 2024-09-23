@@ -35,7 +35,6 @@ export function AuthProvider({ children }) {
         fetchUser();
     }, [token]);
     
-
     const login = async (username, password) => {
         try {
             const response = await axios.post(`${baseURL}/login`, { username, password });
@@ -50,7 +49,7 @@ export function AuthProvider({ children }) {
             console.error("Login failed", error);
             setToken(null);
             setUser(null);
-            setError("Incorrect username or password."); // Set error message
+            setError("Incorrect username or password."); 
         }
     };
 
@@ -60,7 +59,7 @@ export function AuthProvider({ children }) {
             setError(""); 
         } catch (error) {
             console.error("Signup failed", error);
-            setError("Signup failed. Please try again."); // Set error message
+            setError("Signup failed. Please try again."); 
         }
     };
 

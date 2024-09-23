@@ -4,7 +4,6 @@
 .header{
     @include justifyContent-alignItems-center;
     flex-flow: column;
-    // background: linear-gradient(to right, $primary-green, $dark-green);
     background-color: $primary-green;
     color: $dark-green;
     padding-bottom: 1.25rem;
@@ -42,23 +41,18 @@
             height: 18rem;
             margin: -2.5rem;
         }
-
     }
 }
-
 
 // logged in
 .header-logged-in{
     @include justify-evenly;
     margin-top: -1.875rem;
     @include body-large;
-    display: flex;
-    flex-flow: column;
+    @include flex-column;
 
     &__wrapper{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include justifyContent-alignItems-center;
         margin-bottom: 1.25rem;
         gap: .625rem;
     }
@@ -125,6 +119,7 @@
     &__login, &__signup{
         color: $dark-green;
         text-decoration: none;
+        
         &:hover{
             color: $primary-light;
             @include border-bottom-dotted-brown;
@@ -137,7 +132,6 @@
         &__login, &__signup{
             @include dt-body-large;
         }
-
     }
     @include desktop{
         gap: 5rem;

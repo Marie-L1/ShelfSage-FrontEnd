@@ -3,7 +3,7 @@ import axios from "axios";
 class APIhandler {
     constructor(){
         this.baseURL = "http://localhost:8080";
-    }
+    };
 
     // User login
     async loginUser(username, password){
@@ -25,6 +25,7 @@ class APIhandler {
         }
     };
 
+    // Logged In user
     async isLoggedIn(token){
         try{
             const response = await axios.post(`${this.baseURL}/loggedIn`, {
@@ -46,7 +47,7 @@ class APIhandler {
         } catch (error) {
             console.error("Error fetching user profile", error);
         }
-    }
+    };
 
     // Fetch all books on the user's shelf - requires token
     async getUserShelf(token) {
@@ -58,7 +59,7 @@ class APIhandler {
         } catch (error) {
             console.error("Error fetching user's shelf", error);
         }
-    }
+    };
 
     // Add a book to user's shelf - requires token
     async addBookToShelf(token, userId, bookId){
@@ -72,7 +73,6 @@ class APIhandler {
         }
     };
 
-
     // Logout user - clear local token
     logoutUser(){
         try {
@@ -82,9 +82,9 @@ class APIhandler {
             console.error("Error logging out user", error);
             return false; // logout failure
         }
-    }
+    };
 
-    // Google Book API
+    // ---Google Book API---
 
     // Fetch popular books
     async getPopularBooks() {
@@ -96,14 +96,14 @@ class APIhandler {
         }
     };
 
-      // Fetch Sara J. Maas' books
-      async getMaasBooks() {
-        try {
-            const response = await axios.get(`${this.baseURL}/books/Maas`);
-            return response.data;
-        } catch (error) {
-            console.error('Error fetching Maas books', error);
-        }
+    // Fetch Sara J. Maas' books
+    async getMaasBooks() {
+    try {
+        const response = await axios.get(`${this.baseURL}/books/Maas`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching Maas books', error);
+    }
     };
 
      // Fetch Sci-fi books
@@ -157,7 +157,6 @@ class APIhandler {
             console.error("Error fetching book details");
         }
     };
-
 };
 
 export default APIhandler;
