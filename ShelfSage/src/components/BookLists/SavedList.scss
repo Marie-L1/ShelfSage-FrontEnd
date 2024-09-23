@@ -1,0 +1,35 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.saved-list{
+    flex-wrap: wrap;
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0.5rem;
+    margin: 1rem;
+
+    &__wrapper{
+        margin-right: 1rem;
+        text-align: center;
+        min-width: 12.5rem;
+        margin: 1rem;
+        border-bottom: rgb(113, 60, 60) .625rem solid;
+        border-image: linear-gradient(to left, #432f34 0%, #7a4444 90%) 1;
+        box-shadow: 0 1.25rem 1.25rem .0625rem $dark-green;
+    }
+    &__item{
+        list-style: none;
+    }
+    &__cover{
+        width: 16.875rem; 
+        height: 21.875rem;
+        margin-bottom: .9375rem;
+        box-shadow: 0 1.25rem 1.0625rem 0 #222;
+    }
+    &__title{
+        margin-top: 0.5rem;
+        @include body-medium;
+        flex-wrap: wrap;
+    }
+}

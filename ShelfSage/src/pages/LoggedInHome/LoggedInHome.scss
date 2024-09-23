@@ -1,0 +1,89 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.home{
+    background-color: $primary-light;
+}
+
+.hero{
+    margin-bottom: 12.5rem;
+
+    &__img{
+        width: 100%;
+        max-height: 45vh;
+        z-index: 0;
+    }
+    &__content-wrapper{
+        margin-top: -15.625rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        gap: 1.25rem;
+    }
+    &__title{
+        @include page-header;
+        z-index: 2;
+        background-color: $secondary-green;
+        padding: .9375rem;
+        border-radius: .3125rem;
+        @include border-dark-green;
+    }
+    &__search{
+        z-index: 2;
+    }
+
+    @include tablet{
+        margin-bottom: 15.625rem;
+        &__img{
+            max-height: 50vh;
+        }
+        &__content-wrapper{
+            margin-top: -18.625rem;
+            gap: 2rem;
+        }
+        &__title{
+            @include dt-page-header;
+        }
+    }
+    @include desktop{
+        margin-bottom: 18.75rem;
+        &__img{
+            max-height: 59vh
+        }
+        &__content-wrapper{
+            margin-top: -22rem;
+            gap: 2rem;
+        }
+        &__title{
+            @include dt-page-header;
+        }
+
+    }
+}
+
+.book-lists-column{
+    @include flex-column;
+    margin: -4.375rem 0 1.25rem 0;
+    
+    &__title{
+        @include page-header;
+        margin: 1.875rem 0 0 3.125rem;
+    }
+    &__items{
+        position: relative;
+        
+        &::after { 
+            content: "";
+            position: absolute;
+            left: 50%;
+            width: 90%;
+            height: .125rem;
+            background-color: $dark-green;
+            transform: translateX(-50%);
+        }
+            &::after {
+                bottom: 0;
+            }
+    }
+}

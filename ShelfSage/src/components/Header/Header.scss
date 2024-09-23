@@ -1,0 +1,145 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.header{
+    @include justifyContent-alignItems-center;
+    flex-flow: column;
+    background-color: $primary-green;
+    color: $dark-green;
+    padding-bottom: 1.25rem;
+    @include body-large;
+    @include border-bottom-dotted-brown;
+    &__logo{
+        width: 18rem;
+        height: 18rem;
+        margin-top: -2.5rem;
+    }
+    @include tablet{
+        flex-flow: row;
+        padding-bottom: 0;
+        justify-content: flex-start;
+        align-content: center;
+        gap: 1.875rem;
+        padding-left: 3.125rem;
+        @include dt-body-large;
+        &__logo{
+            width: 20rem;
+            height: 20rem;
+            margin: -2.5rem;
+        }
+    }
+    @include desktop{
+        flex-flow: row;
+        padding-bottom: 0;
+        justify-content: flex-start;
+        align-content: center;
+        padding-left: 5.625rem;
+        @include dt-body-large;
+
+        &__logo{
+            width: 18rem;
+            height: 18rem;
+            margin: -2.5rem;
+        }
+    }
+}
+
+// logged in
+.header-logged-in{
+    @include justify-evenly;
+    margin-top: -1.875rem;
+    @include body-large;
+    @include flex-column;
+
+    &__wrapper{
+        @include justifyContent-alignItems-center;
+        margin-bottom: 1.25rem;
+        gap: .625rem;
+    }
+    &__welcome{
+        @include body-large;
+    }
+    &__logout{
+        background-color: $brown;
+        padding: 0.1rem;
+        width: 3rem;
+        border: none;
+        border-radius: .25rem;
+        @include labels-links-buttons;
+    }
+    &__nav{
+        display: flex;
+        justify-content: space-around;
+        gap: 3.75rem;
+    }
+    &__nav-home, &__nav-shelf, &__nav-recs, &__nav-profile{
+        color: $dark-green;
+        text-decoration: none;
+        &:hover{
+            color: $primary-light;
+            @include border-bottom-dotted-brown;
+        }
+    }
+
+    @include tablet{
+        @include dt-body-large;
+        margin-top: 1.875rem;
+
+        &__welcome{
+            @include dt-body-large;
+        }
+        &__logout{
+            padding: 0.3rem;
+            width: 4rem;
+            @include dt-labels-links-buttons;
+        }
+    }
+    @include desktop{
+        @include dt-body-large;
+        margin-top: 1.875rem;
+
+        &__welcome{
+            @include dt-body-large;
+        }
+        &__logout{
+            padding: 0.4rem;
+            width: 4.5rem;
+            @include dt-labels-links-buttons;
+        }
+    }
+}
+
+// logged out
+.header-logged-out{
+    display: flex;
+    justify-content: space-around;
+    gap: 7.5rem;
+    margin-top: -1.875rem;
+
+    &__login, &__signup{
+        color: $dark-green;
+        text-decoration: none;
+        
+        &:hover{
+            color: $primary-light;
+            @include border-bottom-dotted-brown;
+        }
+    }
+    @include tablet{
+        gap: 3.125rem;
+        margin-top: 1rem;
+    
+        &__login, &__signup{
+            @include dt-body-large;
+        }
+    }
+    @include desktop{
+        gap: 5rem;
+        margin-top: 1rem;
+
+        &__login, &__signup{
+            @include dt-body-large;
+        }
+    }
+
+}

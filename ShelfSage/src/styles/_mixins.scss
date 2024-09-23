@@ -1,0 +1,139 @@
+@use './variables' as *;
+
+@mixin tablet {
+    @media (min-width: 768px){
+    @content;}
+};
+
+@mixin desktop {
+    @media (min-width: 1280px){
+    @content;}
+};
+
+
+
+//MOBILE TEXT STYLES
+@mixin page-header {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+}
+@mixin sub-header {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+@mixin labels-links-buttons {
+    font-size: .8125rem;
+    line-height: 1.25rem;
+}
+@mixin table-header {
+    font-size: .6875rem;
+    line-height: 1rem;
+}
+@mixin body-large {
+    font-size: .9375rem;
+    line-height: 1.625rem;
+}
+@mixin body-medium {
+    font-size: .8125rem;
+    line-height: 1.25rem;
+}
+@mixin body-small {
+    font-size: .6875rem;
+    line-height: 1rem;
+}
+
+//DESKTOP AND TABLET TEXT STYLES
+@mixin dt-page-header {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+@mixin dt-sub-header {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+@mixin dt-labels-links-buttons {
+    font-size: .875rem;
+    line-height: 1.375rem;
+}
+@mixin dt-table-header {
+    font-size: .75rem;
+    line-height: 1.125rem;
+}
+@mixin dt-body-large {
+    font-size: 1rem;
+    line-height: 1.75rem;
+}
+@mixin dt-body-medium {
+    font-size: .875rem;
+    line-height: 1.375rem;
+}
+@mixin dt-body-small {
+    font-size: .75rem;
+    line-height: 1.125rem;
+}
+
+
+// FLEX BOX
+@mixin flex-row{
+    display: flex;
+    flex-flow: row;
+}
+
+@mixin flex-column{
+    display: flex;
+    flex-flow: column;
+}
+
+@mixin flex-column-align-center{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+@mixin align-items-center{
+    display: flex;
+    align-items: center;
+}
+
+@mixin justify-content-center{
+    display: flex;
+    justify-content: center;
+}
+
+@mixin justifyContent-alignItems-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin justifyContent-alignContent-center{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+@mixin justify-evenly{
+    display: flex;
+    justify-content: space-evenly;
+}
+@mixin justify-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+// BORDERS
+@mixin border-dark-green{
+    border: solid .0625rem $dark-green;
+}
+
+@mixin border-second-green{
+    border: .125rem solid $secondary-green;
+}
+
+@mixin border-bottom-dotted-brown{
+    border-bottom: dotted .125rem $brown;
+}
+
+@mixin border-top-dotted-brown{
+    border-top: dotted .125rem $brown;
+}

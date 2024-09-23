@@ -1,0 +1,24 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.footer{
+    @include justifyContent-alignItems-center;
+    padding: 3.125rem;
+    background: linear-gradient(to bottom, $primary-green, $dark-green);
+    @include border-top-dotted-brown;
+    &__content{
+        color: $secondary-green;
+        @include body-small;
+    }
+
+    @include tablet{
+        &__content{
+            @include dt-body-small;
+        }
+    }
+    @include desktop{
+        &__content{
+            @include dt-body-small;
+        }
+    }
+}

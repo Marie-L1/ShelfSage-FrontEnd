@@ -1,0 +1,25 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.book-list{
+    display: flex;
+    overflow-x: auto;
+    padding: 2rem;
+    gap: .625rem;
+
+    &__wrapper{
+        flex-shrink: 0;
+        margin-right: 1rem;
+        text-align: center;
+        min-width: 12.5rem;
+    }
+    &__cover{
+        width: 10.625rem; 
+        height: 15.625rem;
+    }
+    &__title{
+        margin-top: 0.5rem;
+        @include body-medium;
+        flex-wrap: wrap;
+    }
+}

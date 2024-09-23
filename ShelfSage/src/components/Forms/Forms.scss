@@ -1,0 +1,141 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+
+
+.form{
+    background-image: url("../../assets//images//loggedout-homepage.jpg");
+    background-size: cover;
+    background-position: top;
+    @include flex-column-align-center;
+
+    &__section{
+        @include flex-column-align-center;
+        background-color: rgba(255, 255, 255, 0.8); 
+        padding: 2rem; 
+        border-radius: .5rem; 
+        max-width: 31.25rem; 
+        margin: 12.5rem auto 1.25rem auto;
+        box-shadow: 0 .25rem .5rem rgba(0, 0, 0, 0.2);
+    }
+    &__title{
+        padding-top: 3rem;
+        margin-bottom: 2rem;
+        @include border-bottom-dotted-brown;
+        @include page-header;
+    }
+    &__username-wrapper,&__email-wrapper, &__password-wrapper {
+        @include flex-column-align-center;
+        margin: 2rem;
+    }
+    &__username-label, &__email-label, &__password-label {
+        @include border-bottom-dotted-brown;
+        margin: 1rem;
+        @include sub-header;
+    }
+    &__username-input, &__email-input,  &__password-input {
+        height: 2.5rem;
+        @include border-dark-green;
+        padding: 1rem;
+        width: 50vw;
+        border-radius: .25rem;
+
+        &:focus{
+            @include border-second-green;
+        }
+    }
+    &__submit-btn{
+        margin: 1.875rem;
+        width: 50vw;
+        background-color: $primary-green;
+        @include border-second-green;
+        border-radius: .25rem;
+        padding: .3125rem;
+        @include labels-links-buttons;
+
+        &:hover{
+            background-color: $secondary-green;
+        }
+    }
+    &__switch{
+        margin: 1.875rem 1.875rem 16rem 1.875rem;
+        @include body-medium;
+    }
+    &__switch-btn{
+        background-color: $brown;
+        padding: .3125rem;
+        width: 5.625rem;
+        @include border-second-green;
+        border-radius: .25rem;
+        margin-left: 1rem;
+        @include labels-links-buttons;
+
+        &:hover{
+            background-color: $secondary-green;
+        }
+    }
+
+    @include tablet{
+        &__title{
+            @include dt-page-header;
+        }
+        &__username-label, &__email-label, &__password-label {
+            @include dt-sub-header;
+        }
+        &__username-input, &__email-input,  &__password-input {
+            height: 2.75rem;
+            width: 38vw;
+            padding: 1.5rem;
+
+            &::placeholder{
+                @include dt-body-medium;
+            }
+        }
+        &__section{
+            padding: 2rem 5rem; 
+        }
+        &__submit-btn{
+            width: 38vw;
+            padding: .5rem;
+            @include dt-labels-links-buttons;
+        }
+        &__switch{
+            @include dt-body-medium;
+        }
+        &__switch-btn{
+            @include dt-labels-links-buttons;
+            padding: 0.5rem;
+            width: 6rem;
+        }
+    }
+    @include desktop{
+        &__title{
+            @include dt-page-header;
+        }
+        &__username-label, &__email-label, &__password-label {
+            @include dt-sub-header;
+        }
+        &__username-input, &__email-input,  &__password-input {
+            height: 3em;
+            width: 30vw;
+            padding: 1.5rem;
+        }
+        &__section{
+            padding: 2rem; 
+        }
+        &__submit-btn{
+            width: 30vw;
+            padding: .5rem;
+            @include dt-labels-links-buttons;
+        }
+        &__switch{
+            @include dt-body-medium;
+        }
+        &__switch-btn{
+            @include dt-labels-links-buttons;
+            padding: 0.5rem;
+            width: 6rem;
+        }
+
+    }
+}
