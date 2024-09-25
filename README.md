@@ -2,7 +2,7 @@
 
 ## Overview
 
-ShelfSage is a personalized book recommendation web app that allows users to discover books based on their reading preferences or what they have on their 'shelf'. The user will be able to create a profile, add books to their 'shelf', and receive book recommendations similar to Netflix. I will be using AI to recommend books based on the user's interactions and saved books.
+ShelfSage is a personalized book recommendation web app that allows users to discover books based on their reading preferences or what they have on their 'shelf'. The user will be able to create a profile, add books to their 'shelf', and receive book recommendations similar to Netflix.
 
 ### Problem Space
 
@@ -13,10 +13,8 @@ There is an overwhelming amount of books in the world and finding one that match
 ShelfSage is designed for avid readers who want to keep track of their growing piles of books. Users will be able to:
  - Search for books, authors, genres
  - Add books to their personal shelf
- - Remove books from their personal shelf
- - Receive personal book recommendations
+ - Receive book recommendations
  - View details about books
- - Manage their profile and account settings
 
 ### Features
 Book detail modal: Clicking on a book opens a modal that includes a synopsis, genre, and option to add/remove the book from the user's shelf. This is implemented throughout the web app.
@@ -27,11 +25,6 @@ Book detail modal: Clicking on a book opens a modal that includes a synopsis, ge
  - Bookshelf view: Users can see the books they've saved, displayed as cards.
 3. Recommendation page: 
  - Recommendations on a horizontal scroll, separated into lists based on genre, authors, and keywords.
-4. Profile Page:
- - Basic user management
- - Changing username and password
- - User can upload/change profile image
- - A delete profile button
 
 ## Implementation
 
@@ -84,10 +77,6 @@ Recommendation Page:
  - Books are separated into lists, with horizontal scroll, based off of genre, author, and keywords (Metadata).
  - Clicking on a book will open a modal with more details and the ability to add the book to user's shelf.
 
-Profile Page:
- - Allows the user to upload and update their profile image
- - Allows the user to update their username and password
- - Has a button to delete the account
 
 ### Mockups
 Subject to change.
