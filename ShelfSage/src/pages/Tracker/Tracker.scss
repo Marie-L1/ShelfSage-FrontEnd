@@ -24,11 +24,12 @@
         @include justifyContent-alignItems-center;
     }
     &__title{
-        @include page-header;
-        margin: .625rem 0 3.125rem 0;
-        @include border-dark-green;
+        @include sub-header;
+        z-index: 2;
+        background-color: $secondary-green;
         padding: .9375rem;
         border-radius: .3125rem;
+        @include border-dark-green;
     }
     &__form-title{
         @include sub-header;
@@ -103,7 +104,7 @@
     }
     @include tablet{
         &__title{
-            @include dt-page-header;
+            @include dt-sub-header;
         }
         &__form-title{
             @include dt-sub-header;
@@ -117,7 +118,7 @@
     }
     @include desktop{
         &__title{
-            @include dt-page-header;
+            @include dt-sub-header;
         }
         &__form-title{
             @include dt-sub-header;

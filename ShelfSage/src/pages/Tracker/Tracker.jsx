@@ -51,7 +51,7 @@ function Profile() {
           <div
             className="tracker__progress-bar"
             style={{ width: `${progressPercentage}%` }}
-          ><span className="tracker__progress-text">{progressPercentage}%</span></div>
+          ></div>
 
         <p className="tracker__progress-feedback">
           You’ve read {readBooks} out of {totalBooks} books!
