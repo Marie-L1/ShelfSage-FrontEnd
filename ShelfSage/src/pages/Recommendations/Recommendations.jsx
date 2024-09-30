@@ -17,8 +17,6 @@ function Recommendations() {
     </div>
     <div className="user-recs">
       <RecBookList />
-      <RecBookList />
-
     </div>
   </section>
   )

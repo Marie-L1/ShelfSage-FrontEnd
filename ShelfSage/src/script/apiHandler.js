@@ -73,6 +73,21 @@ class APIhandler {
         }
     };
 
+     // Fetch Recommended books
+     async getRecBooks(token) {
+        // console.log('Token being sent:', token);
+        try {
+            const response = await axios.get(`${this.baseURL}/books/recommendations`, {
+                headers: {
+                    'Authorization': `Bearer ${token}` 
+                }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching recommended books', error);
+        }
+    };
+
     // Logout user - clear local token
     logoutUser(){
         try {
@@ -125,20 +140,6 @@ class APIhandler {
             console.error('Error fetching non-fiction books', error);
         }
     };
-
-    // Fetch Recommended books
-    async getRecBooks() {
-        try {
-            const response = await axios.get(`${this.baseURL}/books/recommendations`, {
-                headers: {
-                    'Authorization': `Bearer ${this.token}` // Ensure the token is included
-                }
-            });
-            return response.data;
-        } catch (error) {
-            console.error('Error fetching recommended books', error);
-        }
-    }
 
     async getSearchBooks(query) {
         try {
