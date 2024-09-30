@@ -84,7 +84,7 @@ class APIhandler {
         }
     };
 
-    // ---Google Book API---
+    // ---Open Library Book API---
 
     // Fetch popular books
     async getPopularBooks() {
@@ -129,12 +129,16 @@ class APIhandler {
     // Fetch Recommended books
     async getRecBooks() {
         try {
-            const response = await axios.get(`${this.baseURL}/books/recommendations`);
+            const response = await axios.get(`${this.baseURL}/books/recommendations`, {
+                headers: {
+                    'Authorization': `Bearer ${this.token}` // Ensure the token is included
+                }
+            });
             return response.data;
         } catch (error) {
-            console.error('Error fetching non-fiction books', error);
+            console.error('Error fetching recommended books', error);
         }
-    };
+    }
 
     async getSearchBooks(query) {
         try {
