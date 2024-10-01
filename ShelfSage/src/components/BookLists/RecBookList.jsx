@@ -96,7 +96,7 @@ function RecBooks() {
           <BookModal
             id={selectedBook.id}
             title={selectedBook.title}
-            author={selectedBook.author[0]}
+            author={selectedBook.author}
             description={selectedBook.description}
             coverImage={selectedBook.coverImage}
             onClose={closeModal}
